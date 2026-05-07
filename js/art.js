@@ -92,7 +92,7 @@ const artistsData = [
     },
     {
         name: "Kremita.",
-        previewImage: "imagenes/kremita1.png",
+        previewImage: "imagenes/kremita1.PNG",
         artworks: [
             "imagenes/kremita1.PNG",
             "imagenes/kremita2.png"
