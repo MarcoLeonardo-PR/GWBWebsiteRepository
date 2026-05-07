@@ -525,7 +525,7 @@ body {
 
 /* ===== FONDO CON GIF PARA INDEX.HTML ===== */
 body.bg-gif {
-    background: none;
+    background: none !important;
     position: relative;
 }
 
@@ -534,14 +534,10 @@ body.bg-gif::before {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     z-index: -2;
-    background-image: url('imagenes/fondo.gif');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url('../imagenes/fondo.gif') center center / cover no-repeat fixed;
 }
 
 body.bg-gif::after {
@@ -549,10 +545,10 @@ body.bg-gif::after {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     z-index: -1;
-    background-color: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.65);
 }
 
 /* ===== RESPONSIVE GENERAL ===== */
