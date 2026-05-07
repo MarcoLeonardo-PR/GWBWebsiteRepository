@@ -2,34 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Home</title>
-    <!-- Google Fonts + Font Awesome 6 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Portfolio | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- CSS externo -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header class="navbar">
-    <div class="container nav-container">
-        <button class="tab-btn active" data-tab="home">🏠 Home</button>
-        <button class="tab-btn" data-tab="art">🎨 Art</button>
-        <button class="tab-btn" data-tab="tierlist">📊 Tierlist</button>
-    </div>
-</header>
+    <!-- BARRA DE PESTAÑAS - Estilo moderno con efecto vidrio -->
+    <nav class="tab-bar">
+        <div class="tab-container">
+            <button class="tab-btn active" data-tab="home">🏠 HOME</button>
+            <button class="tab-btn" data-tab="art">🎨 ART</button>
+            <button class="tab-btn" data-tab="tierlist">📊 TIERLIST</button>
+            <div class="tab-highlight"></div>
+        </div>
+    </nav>
 
-<main class="container dynamic-content" id="dynamicContent">
-    <!-- el contenido se inyecta dinámicamente con JS -->
-</main>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content" id="dynamicContent">
+        <!-- El contenido se inyecta con JS -->
+    </main>
 
-<footer class="footer-note">
-    <div class="container">
-        <p>✦ espacio creativo — diseño oscuro y fluido ✦</p>
-    </div>
-</footer>
+    <footer class="footer">
+        <p>✦ DARK MODE AESTHETIC ✦</p>
+    </footer>
 
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
