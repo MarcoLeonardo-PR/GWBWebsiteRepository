@@ -1,4 +1,4 @@
-/* ========== RESET Y BASE ========== */
+/* ===== RESET Y CONFIGURACIÓN GLOBAL ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,106 +6,73 @@
 }
 
 body {
-    background-color: #0B0C10;
-    font-family: 'Inter', sans-serif;
-    color: #E5E9F0;
-    line-height: 1.5;
-    scroll-behavior: smooth;
+    background: radial-gradient(circle at 10% 20%, #0a0a0f, #050508);
+    font-family: 'Montserrat', sans-serif;
+    color: #f0f0f0;
+    min-height: 100vh;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-/* ========== BARRA DE PESTAÑAS ========== */
-.navbar {
-    background: #1A1D2A;
-    border-bottom: 1px solid #2D313E;
-    padding: 1rem 0;
+/* ===== BARRA DE PESTAÑAS (ESTILO MODERNO) ===== */
+.tab-bar {
+    background: rgba(18, 18, 28, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(156, 108, 204, 0.3);
+    padding: 0.75rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 100;
-    backdrop-filter: blur(4px);
-    background-color: rgba(26, 29, 42, 0.95);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.nav-container {
+.tab-container {
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    align-items: baseline;
+    gap: 2rem;
+    position: relative;
 }
 
 .tab-btn {
-    background: none;
+    background: transparent;
     border: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 0.5rem 0.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.8rem;
     cursor: pointer;
-    color: #B0B7C9;
-    transition: all 0.2s ease;
-    letter-spacing: 0.3px;
+    color: #aaaac9;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
     position: relative;
-    font-family: 'Inter', sans-serif;
-}
-
-.tab-btn::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
-    height: 2.5px;
-    background: #A970F0;
-    border-radius: 3px;
-    transition: width 0.25s ease;
+    z-index: 2;
+    border-radius: 40px;
 }
 
 .tab-btn:hover {
-    color: #F0F3FC;
+    color: #c084fc;
+    text-shadow: 0 0 8px rgba(192, 132, 252, 0.4);
 }
 
 .tab-btn.active {
-    color: #CBA6F7;
+    color: #ffffff;
+    background: rgba(156, 108, 204, 0.2);
+    box-shadow: 0 0 12px rgba(156, 108, 204, 0.3);
 }
 
-.tab-btn.active::after {
-    width: 100%;
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.main-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem 2rem 3rem;
+    min-height: 70vh;
 }
 
-/* ========== CONTENIDO DINÁMICO ========== */
-.dynamic-content {
-    min-height: 75vh;
-    margin-top: 3rem;
-    margin-bottom: 4rem;
-}
-
-/* ========== ANIMACIONES SMOOTH IN ========== */
-.fade-item {
-    opacity: 0;
-    animation: smoothRise 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
-}
-
-.img-fade {
-    animation-delay: 0.05s;
-}
-
-.text-fade {
-    animation-delay: 0.15s;
-}
-
-.social-fade {
-    animation-delay: 0.28s;
-}
-
-@keyframes smoothRise {
+/* ===== ANIMACIONES SMOOTH IN ===== */
+@keyframes fadeSlideUp {
     0% {
         opacity: 0;
-        transform: translateY(26px);
+        transform: translateY(40px);
     }
     100% {
         opacity: 1;
@@ -113,155 +80,218 @@ body {
     }
 }
 
-/* ========== HOME PAGE ========== */
-.home-wrapper {
+@keyframes fadeSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeSlideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-up {
+    animation: fadeSlideUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+.animate-left {
+    animation: fadeSlideLeft 0.6s ease-out forwards;
+}
+
+.animate-right {
+    animation: fadeSlideRight 0.6s ease-out forwards;
+}
+
+/* delay escalonado para los elementos */
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.15s; }
+.delay-3 { animation-delay: 0.28s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* ===== HOME - ESTILO OSCURO Y DECORADO ===== */
+.home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 750px;
-    margin: 0 auto;
-    gap: 1.8rem;
+    gap: 2rem;
 }
 
-.medium-photo {
+/* FOTO MEDIANA - USANDO EL NOMBRE "fursona" */
+.profile-photo {
     width: 280px;
     height: 280px;
+    border-radius: 40px;
     object-fit: cover;
-    border-radius: 32px;
-    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(169, 112, 240, 0.2);
-    transition: transform 0.25s ease, box-shadow 0.3s;
+    border: 3px solid rgba(156, 108, 204, 0.6);
+    box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(156, 108, 204, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #1a1a2a;
 }
 
-.medium-photo:hover {
-    transform: scale(1.02);
-    box-shadow: 0 24px 40px -14px #00000066;
+.profile-photo:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 30px 45px -12px #000, 0 0 0 2px #c084fc;
 }
 
-.home-description {
-    font-size: 1.18rem;
+/* TEXTO DEBIJO DE LA FOTO */
+.bio-text {
+    background: rgba(20, 20, 35, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem 2rem;
+    border-radius: 50px;
+    max-width: 550px;
+    border: 1px solid rgba(156, 108, 204, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bio-text p {
+    font-size: 1.15rem;
     line-height: 1.6;
-    color: #CDD9F4;
-    max-width: 580px;
-    background: rgba(30, 33, 48, 0.5);
-    padding: 1rem 1.6rem;
-    border-radius: 48px;
-    backdrop-filter: blur(2px);
-    font-weight: 400;
+    font-weight: 500;
+    color: #e0d4ff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* ========== REDES SOCIALES ========== */
-.social-icons-row {
+.bio-text .highlight {
+    color: #c084fc;
+    font-weight: 700;
+}
+
+/* ===== ICONOS DE REDES SOCIALES (con nombres: twitter, discord, random) ===== */
+.social-grid {
     display: flex;
-    gap: 2.5rem;
     justify-content: center;
-    margin-top: 0.4rem;
+    gap: 2.5rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
 }
 
-.social-link {
-    background: #212433;
-    width: 64px;
-    height: 64px;
-    border-radius: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.2rem;
-    color: #D9E2FF;
-    transition: all 0.25s ease-in-out;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-}
-
-.social-link:hover {
-    background: #A970F0;
-    color: #0B0C10;
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(169, 112, 240, 0.3);
-}
-
-/* ========== PÁGINAS PLACEHOLDER (ART / TIERLIST) ========== */
-.placeholder-page {
+.social-icon {
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(145deg, #181828, #10101c);
+    border-radius: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(156, 108, 204, 0.4);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+.social-icon i {
+    font-size: 2.2rem;
+    color: #c9c9f0;
+    transition: all 0.3s;
+}
+
+.social-icon span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    transform: translateY(-10px);
+    border-color: #c084fc;
+    background: linear-gradient(145deg, #20203a, #141426);
+    box-shadow: 0 15px 25px rgba(156, 108, 204, 0.3);
+}
+
+.social-icon:hover i {
+    color: #c084fc;
+    text-shadow: 0 0 8px #c084fc;
+}
+
+.social-icon:hover span {
+    color: #c084fc;
+}
+
+/* ===== PÁGINAS PLACEHOLDER (ART / TIERLIST) DECORADAS ===== */
+.placeholder-art, .placeholder-tier {
     text-align: center;
     padding: 3rem 1rem;
-    gap: 1.5rem;
-    background: rgba(18, 20, 30, 0.6);
+    background: rgba(16, 16, 26, 0.6);
+    backdrop-filter: blur(8px);
     border-radius: 48px;
-    backdrop-filter: blur(4px);
-    max-width: 650px;
+    border: 1px solid rgba(156, 108, 204, 0.4);
+    max-width: 600px;
     margin: 2rem auto;
-    border: 1px solid #2C2F3F;
+    animation: fadeSlideUp 0.6s ease-out;
 }
 
-.placeholder-page i {
+.placeholder-art i, .placeholder-tier i {
     font-size: 4rem;
-    color: #A970F0;
-    margin-bottom: 0.5rem;
+    color: #c084fc;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.5));
 }
 
-.placeholder-page h2 {
+.placeholder-art h2, .placeholder-tier h2 {
     font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    background: linear-gradient(135deg, #E2C8FF, #B77EFF);
+    margin: 1rem 0;
+    background: linear-gradient(135deg, #e0c3ff, #a855f7);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
 }
 
-.placeholder-page p {
-    font-size: 1.1rem;
-    color: #A9B7E8;
-    max-width: 450px;
+.placeholder-art p, .placeholder-tier p {
+    color: #b4b4e0;
+    font-size: 1rem;
 }
 
-/* ========== FOOTER ========== */
-.footer-note {
+/* ===== FOOTER ===== */
+.footer {
     text-align: center;
-    padding: 2rem 0;
-    border-top: 1px solid #232634;
-    font-size: 0.85rem;
-    color: #7B829F;
-    margin-top: 2rem;
+    padding: 2rem;
+    border-top: 1px solid rgba(156, 108, 204, 0.2);
+    margin-top: 3rem;
+    color: #6c6c8a;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
 
-/* ========== MEDIA QUERIES ========== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 650px) {
-    .container {
-        padding: 0 1.2rem;
-    }
-    .medium-photo {
+    .profile-photo {
         width: 220px;
         height: 220px;
     }
-    .social-link {
-        width: 54px;
-        height: 54px;
+    
+    .social-icon {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .social-icon i {
         font-size: 1.8rem;
     }
-    .home-description {
-        font-size: 1rem;
-        padding: 0.8rem 1.2rem;
-    }
-    .nav-container {
-        gap: 1.6rem;
-    }
+    
     .tab-btn {
-        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
-}
-
-@media (max-width: 480px) {
-    .social-icons-row {
-        gap: 1.2rem;
-    }
-    .medium-photo {
-        width: 180px;
-        height: 180px;
+    
+    .bio-text p {
+        font-size: 0.95rem;
     }
 }
