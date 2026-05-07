@@ -22,12 +22,31 @@
     </nav>
 
     <main class="main-content">
-        <div class="placeholder-card">
-            <h2>Art</h2>
-            <p>Archivo visual — próximamente</p>
+        <div class="gallery-header" id="galleryHeader">
+            <h1 id="galleryTitle">Awesome arts</h1>
+            <p id="gallerySubtitle">you can click on them!</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- contenido dinámico -->
         </div>
     </main>
 
-    <script src="js/main.js"></script>
+    <!-- Modal estilo WhatsApp -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-prev">‹</div>   <!-- izquierda = anterior -->
+        <div class="modal-next">›</div>   <!-- derecha = siguiente -->
+        
+        <div class="modal-image-container">
+            <img id="modalMainImage" class="modal-main-image" src="" alt="obra">
+        </div>
+        
+        <div id="modalThumbnails" class="modal-thumbnails">
+            <!-- miniaturas dinámicas -->
+        </div>
+    </div>
+
+    <script src="js/art.js"></script>
 </body>
 </html>
