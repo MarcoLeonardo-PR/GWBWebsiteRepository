@@ -1,0 +1,1430 @@
+{
+  "games": {
+    "rows": [
+      {
+        "id": "splus",
+        "label": "S+",
+        "color": "#ff0066"
+      },
+      {
+        "id": "s",
+        "label": "S",
+        "color": "#ff6600"
+      },
+      {
+        "id": "a",
+        "label": "A",
+        "color": "#ffcc00"
+      },
+      {
+        "id": "b",
+        "label": "B",
+        "color": "#66cc00"
+      },
+      {
+        "id": "c",
+        "label": "C",
+        "color": "#3399ff"
+      },
+      {
+        "id": "d",
+        "label": "D",
+        "color": "#6666cc"
+      },
+      {
+        "id": "meh",
+        "label": "Meh",
+        "color": "#888888"
+      }
+    ],
+    "items": {
+      "splus": [
+        {
+          "id": "img_1778467712512_0.7128415616963157_05a84ce968125d79fa36484c5a756a1c8d9b05622aae21c1-1724283537412",
+          "name": "05a84ce968125d79fa36484c5a756a1c8d9b05622aae21c1-1724283537412",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/05a84ce968125d79fa36484c5a756a1c8d9b05622aae21c1-1724283537412.png"
+        },
+        {
+          "id": "img_1778467712512_0.5883425347505695_0_x8V7lfegPKrFC-AB",
+          "name": "0_x8V7lfegPKrFC-AB",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/0_x8V7lfegPKrFC-AB.png"
+        },
+        {
+          "id": "img_1778467712512_0.530491646343001_1366_2000",
+          "name": "1366_2000",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/1366_2000.png"
+        },
+        {
+          "id": "img_1778467712512_0.05285631060002571_1665091875_the-mortuary-assistant-button-1657583247666",
+          "name": "1665091875_the-mortuary-assistant-button-1657583247666",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/1665091875_the-mortuary-assistant-button-1657583247666.png"
+        },
+        {
+          "id": "img_1778467712512_0.04259996912236863_2x1_NineSols_image1600w",
+          "name": "2x1_NineSols_image1600w",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/2x1_NineSols_image1600w.png"
+        },
+        {
+          "id": "img_1778467712512_0.8732879647300933_355472568_730450159090435_8692440798673135578_n",
+          "name": "355472568_730450159090435_8692440798673135578_n",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/355472568_730450159090435_8692440798673135578_n.png"
+        },
+        {
+          "id": "img_1778467712512_0.13730258266011597_5b1a1b137a98a671a157c95962224f1185c8a236",
+          "name": "5b1a1b137a98a671a157c95962224f1185c8a236",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/5b1a1b137a98a671a157c95962224f1185c8a236.png"
+        },
+        {
+          "id": "img_1778467712512_0.606082468682582_6-1-602402-52",
+          "name": "6-1-602402-52",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/6-1-602402-52.png"
+        },
+        {
+          "id": "img_1778467712512_0.014574971391589031_61jwHFWTjLL._UF1000,1000_QL80_",
+          "name": "61jwHFWTjLL._UF1000,1000_QL80_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/61jwHFWTjLL._UF1000,1000_QL80_.png"
+        },
+        {
+          "id": "img_1778467712512_0.15757655211629296_9PMM21KVRD72-scaled",
+          "name": "9PMM21KVRD72-scaled",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/9PMM21KVRD72-scaled.png"
+        },
+        {
+          "id": "img_1778467712512_0.41528295435097495_a-way-out-origin-packart",
+          "name": "a-way-out-origin-packart",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/a-way-out-origin-packart.png"
+        },
+        {
+          "id": "img_1778467712512_0.18484722792557207_Alan_Wake_2_box_art",
+          "name": "Alan_Wake_2_box_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Alan_Wake_2_box_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.09531297929555926_Alan_Wake_Game_Cover",
+          "name": "Alan_Wake_Game_Cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Alan_Wake_Game_Cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.9801060988550873_amanda-1",
+          "name": "amanda-1",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/amanda-1.png"
+        },
+        {
+          "id": "img_1778467712512_0.6638430084239958_Amid_Evil_cover",
+          "name": "Amid_Evil_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Amid_Evil_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.502976015848913_Amnesia-The-Dark-Descent-Cover-Art",
+          "name": "Amnesia-The-Dark-Descent-Cover-Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Amnesia-The-Dark-Descent-Cover-Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.07940053055318796_Amnesia_Rebirth_cover_art",
+          "name": "Amnesia_Rebirth_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Amnesia_Rebirth_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.7072384461564964_Amnesia_The_Bunker_cover_art",
+          "name": "Amnesia_The_Bunker_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Amnesia_The_Bunker_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.667162318118606_Animal_Well_Cover_Art",
+          "name": "Animal_Well_Cover_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Animal_Well_Cover_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.9814517527384725_apps.12790.13759164993259851.2f42b5d8-829f-41c5-94c1-18ee13b8274c",
+          "name": "apps.12790.13759164993259851.2f42b5d8-829f-41c5-94c1-18ee13b8274c",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/apps.12790.13759164993259851.2f42b5d8-829f-41c5-94c1-18ee13b8274c.png"
+        },
+        {
+          "id": "img_1778467712512_0.15764712097276812_artworks-4350CZccJygseVLw-W2LYUg-t500x500",
+          "name": "artworks-4350CZccJygseVLw-W2LYUg-t500x500",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/artworks-4350CZccJygseVLw-W2LYUg-t500x500.png"
+        },
+        {
+          "id": "img_1778467712512_0.19905080412494902_A_Plague_Tale_Requiem_cover_art",
+          "name": "A_Plague_Tale_Requiem_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/A_Plague_Tale_Requiem_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.13556082589128526_Backpack_Hero_Steam_banner_Oct_2023",
+          "name": "Backpack_Hero_Steam_banner_Oct_2023",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Backpack_Hero_Steam_banner_Oct_2023.png"
+        },
+        {
+          "id": "img_1778467712512_0.5489430159516203_Bayonetta_box_artwork",
+          "name": "Bayonetta_box_artwork",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Bayonetta_box_artwork.png"
+        },
+        {
+          "id": "img_1778467712512_0.7923728492075574_beyond-two-souls-button-fin-1640127262920",
+          "name": "beyond-two-souls-button-fin-1640127262920",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/beyond-two-souls-button-fin-1640127262920.png"
+        },
+        {
+          "id": "img_1778467712512_0.04455759982483798_biohazard_re_4-559091650-mmed",
+          "name": "biohazard_re_4-559091650-mmed",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/biohazard_re_4-559091650-mmed.png"
+        },
+        {
+          "id": "img_1778467712512_0.9769071863475665_Blasphemous_2_cover_art",
+          "name": "Blasphemous_2_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Blasphemous_2_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.6385218374966931_BPM_Bullets_Per_Minute_cover_art",
+          "name": "BPM_Bullets_Per_Minute_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/BPM_Bullets_Per_Minute_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.8629971031318913_Buckshot_Roulette_Cover",
+          "name": "Buckshot_Roulette_Cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Buckshot_Roulette_Cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.06271051841379571_Call_of_Duty_Black_Ops_II_box_artwork",
+          "name": "Call_of_Duty_Black_Ops_II_box_artwork",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Call_of_Duty_Black_Ops_II_box_artwork.png"
+        },
+        {
+          "id": "img_1778467712512_0.7820999670037038_capsule_616x353 (1)",
+          "name": "capsule_616x353 (1)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (1).png"
+        },
+        {
+          "id": "img_1778467712512_0.4239246791699097_capsule_616x353 (2)",
+          "name": "capsule_616x353 (2)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (2).png"
+        },
+        {
+          "id": "img_1778467712512_0.7075168340826287_capsule_616x353 (3)",
+          "name": "capsule_616x353 (3)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (3).png"
+        },
+        {
+          "id": "img_1778467712512_0.2392541859453703_capsule_616x353 (4)",
+          "name": "capsule_616x353 (4)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (4).png"
+        },
+        {
+          "id": "img_1778467712512_0.6461737481856336_capsule_616x353 (5)",
+          "name": "capsule_616x353 (5)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (5).png"
+        },
+        {
+          "id": "img_1778467712512_0.005683924634245163_capsule_616x353 (6)",
+          "name": "capsule_616x353 (6)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (6).png"
+        },
+        {
+          "id": "img_1778467712512_0.06659384439355454_capsule_616x353 (7)",
+          "name": "capsule_616x353 (7)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (7).png"
+        },
+        {
+          "id": "img_1778467712512_0.7059850979466724_capsule_616x353 (8)",
+          "name": "capsule_616x353 (8)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (8).png"
+        },
+        {
+          "id": "img_1778467712512_0.5360601634280322_capsule_616x353 (9)",
+          "name": "capsule_616x353 (9)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353 (9).png"
+        },
+        {
+          "id": "img_1778467712512_0.49946700225164153_capsule_616x353",
+          "name": "capsule_616x353",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/capsule_616x353.png"
+        },
+        {
+          "id": "img_1778467712512_0.3858456063997371_Cocoon_Cover_Art",
+          "name": "Cocoon_Cover_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Cocoon_Cover_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.2369296188693253_Control_game_cover_art",
+          "name": "Control_game_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Control_game_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.3250960566746286_Cover_Art_of_Metro_Exodus",
+          "name": "Cover_Art_of_Metro_Exodus",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Cover_Art_of_Metro_Exodus.png"
+        },
+        {
+          "id": "img_1778467712512_0.6550952870554174_Crypt_of_the_NecroDancer_logo",
+          "name": "Crypt_of_the_NecroDancer_logo",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Crypt_of_the_NecroDancer_logo.png"
+        },
+        {
+          "id": "img_1778467712512_0.9464536749623198_Cult_of_the_Lamb_Key_Art",
+          "name": "Cult_of_the_Lamb_Key_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Cult_of_the_Lamb_Key_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.6134007650960427_Cuphead_(artwork)",
+          "name": "Cuphead_(artwork)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Cuphead_(artwork).png"
+        },
+        {
+          "id": "img_1778467712512_0.526768750422603_d8ls48r-a0aee55e-f279-47f9-82a0-1b102ed681ba",
+          "name": "d8ls48r-a0aee55e-f279-47f9-82a0-1b102ed681ba",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/d8ls48r-a0aee55e-f279-47f9-82a0-1b102ed681ba.png"
+        },
+        {
+          "id": "img_1778467712512_0.34968968562220704_Darkwood_cover",
+          "name": "Darkwood_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Darkwood_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.2634614260351168_Dead_island_PC_packshot",
+          "name": "Dead_island_PC_packshot",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Dead_island_PC_packshot.png"
+        },
+        {
+          "id": "img_1778467712512_0.12746108261694578_Dead_Space_2022_Teaser_Art",
+          "name": "Dead_Space_2022_Teaser_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Dead_Space_2022_Teaser_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.49343590522703573_Devour_videogame_cover",
+          "name": "Devour_videogame_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Devour_videogame_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.9111318975139602_Dishonored_box_art_Bethesda",
+          "name": "Dishonored_box_art_Bethesda",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Dishonored_box_art_Bethesda.png"
+        },
+        {
+          "id": "img_1778467712512_0.806563942329452_Doki_Doki_Literature_Club_Cover",
+          "name": "Doki_Doki_Literature_Club_Cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Doki_Doki_Literature_Club_Cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.7306616113807985_dome-keeper-button-2-1662143016847",
+          "name": "dome-keeper-button-2-1662143016847",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/dome-keeper-button-2-1662143016847.png"
+        },
+        {
+          "id": "img_1778467712512_0.6819114011264501_doom-eternal-deluxe-edition-deluxe-edition-pc-game-steam-cover",
+          "name": "doom-eternal-deluxe-edition-deluxe-edition-pc-game-steam-cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/doom-eternal-deluxe-edition-deluxe-edition-pc-game-steam-cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.8071925810219123_ds2",
+          "name": "ds2",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/ds2.png"
+        },
+        {
+          "id": "img_1778467712512_0.8136084131268526_Duke_Nukem_3D_Coverart",
+          "name": "Duke_Nukem_3D_Coverart",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Duke_Nukem_3D_Coverart.png"
+        },
+        {
+          "id": "img_1778467712512_0.36621533219120483_dusk-2018121111525292_19",
+          "name": "dusk-2018121111525292_19",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/dusk-2018121111525292_19.png"
+        },
+        {
+          "id": "img_1778467712512_0.5193186433826043_DustAETbox",
+          "name": "DustAETbox",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/DustAETbox.png"
+        },
+        {
+          "id": "img_1778467712512_0.4745010759512812_e609d3_dbc3f1ee8e294d579331eaa261025e4c~mv2",
+          "name": "e609d3_dbc3f1ee8e294d579331eaa261025e4c~mv2",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/e609d3_dbc3f1ee8e294d579331eaa261025e4c~mv2.png"
+        },
+        {
+          "id": "img_1778467712512_0.4155793262756432_EGS_AmongtheSleepEnhancedEdition_KrillbiteStudioAS_S2_1200x1600-ba43835916e83b6cecc56b71af8e3eb1",
+          "name": "EGS_AmongtheSleepEnhancedEdition_KrillbiteStudioAS_S2_1200x1600-ba43835916e83b6cecc56b71af8e3eb1",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_AmongtheSleepEnhancedEdition_KrillbiteStudioAS_S2_1200x1600-ba43835916e83b6cecc56b71af8e3eb1.png"
+        },
+        {
+          "id": "img_1778467712512_0.39723115974119294_EGS_BeforeYourEyes_GoodbyeWorldGames_S1_2560x1440-1785ff05a45e3e58504b17a183854a34",
+          "name": "EGS_BeforeYourEyes_GoodbyeWorldGames_S1_2560x1440-1785ff05a45e3e58504b17a183854a34",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_BeforeYourEyes_GoodbyeWorldGames_S1_2560x1440-1785ff05a45e3e58504b17a183854a34.png"
+        },
+        {
+          "id": "img_1778467712512_0.03754784550452017_EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7",
+          "name": "EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7.png"
+        },
+        {
+          "id": "img_1778467712512_0.11523220007813761_EGS_GodofWar_SantaMonicaStudio_S2_1200x1600-fbdf3cbc2980749091d52751ffabb7b7_1200x1600-fbdf3cbc2980749091d52751ffabb7b7",
+          "name": "EGS_GodofWar_SantaMonicaStudio_S2_1200x1600-fbdf3cbc2980749091d52751ffabb7b7_1200x1600-fbdf3cbc2980749091d52751ffabb7b7",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_GodofWar_SantaMonicaStudio_S2_1200x1600-fbdf3cbc2980749091d52751ffabb7b7_1200x1600-fbdf3cbc2980749091d52751ffabb7b7.png"
+        },
+        {
+          "id": "img_1778467712512_0.6730943086611021_EGS_GrandTheftAutoSanAndreasTheDefinitiveEdition_RockstarGames_S2_1200x1600-31b942afca6472306be8ae9dfa73290e",
+          "name": "EGS_GrandTheftAutoSanAndreasTheDefinitiveEdition_RockstarGames_S2_1200x1600-31b942afca6472306be8ae9dfa73290e",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_GrandTheftAutoSanAndreasTheDefinitiveEdition_RockstarGames_S2_1200x1600-31b942afca6472306be8ae9dfa73290e.png"
+        },
+        {
+          "id": "img_1778467712512_0.30490529275319644_EGS_NoStraightRoads_MetronomikPteLtd_S2-1200x1600-a978223af779b9e669ca91746a6466e0",
+          "name": "EGS_NoStraightRoads_MetronomikPteLtd_S2-1200x1600-a978223af779b9e669ca91746a6466e0",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_NoStraightRoads_MetronomikPteLtd_S2-1200x1600-a978223af779b9e669ca91746a6466e0.png"
+        },
+        {
+          "id": "img_1778467712512_0.4254162164213683_EGS_ObserverSystemRedux_BlooberTeam_S2-1200x1600-9a24fc78d36d88f8a4217ac75e353539",
+          "name": "EGS_ObserverSystemRedux_BlooberTeam_S2-1200x1600-9a24fc78d36d88f8a4217ac75e353539",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_ObserverSystemRedux_BlooberTeam_S2-1200x1600-9a24fc78d36d88f8a4217ac75e353539.png"
+        },
+        {
+          "id": "img_1778467712512_0.041211451442553226_EGS_RatchetClankRiftApart_InsomniacGames_S2_1200x1600-52110dae5ab01644738dac07ac1ea796",
+          "name": "EGS_RatchetClankRiftApart_InsomniacGames_S2_1200x1600-52110dae5ab01644738dac07ac1ea796",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_RatchetClankRiftApart_InsomniacGames_S2_1200x1600-52110dae5ab01644738dac07ac1ea796.png"
+        },
+        {
+          "id": "img_1778467712512_0.4912012915456643_EGS_RimWorld_LudeonStudios_S1-2560x1440-410a62ec21d44260409182e1174cce2e",
+          "name": "EGS_RimWorld_LudeonStudios_S1-2560x1440-410a62ec21d44260409182e1174cce2e",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EGS_RimWorld_LudeonStudios_S1-2560x1440-410a62ec21d44260409182e1174cce2e.png"
+        },
+        {
+          "id": "img_1778467712512_0.6671996941674755_elder-scrolls-skyrim-button-2017-1629409446732",
+          "name": "elder-scrolls-skyrim-button-2017-1629409446732",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/elder-scrolls-skyrim-button-2017-1629409446732.png"
+        },
+        {
+          "id": "img_1778467712512_0.277184079292771_EnterTheGungeon_S2_1200x1600_1200x1600-4d79aae1e860c191c706e4e8bfdef244_1200x1600-125549821fa047f76b5f85f630e8c4fe",
+          "name": "EnterTheGungeon_S2_1200x1600_1200x1600-4d79aae1e860c191c706e4e8bfdef244_1200x1600-125549821fa047f76b5f85f630e8c4fe",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/EnterTheGungeon_S2_1200x1600_1200x1600-4d79aae1e860c191c706e4e8bfdef244_1200x1600-125549821fa047f76b5f85f630e8c4fe.png"
+        },
+        {
+          "id": "img_1778467712512_0.343444876088292_Fable-xboxone-e1586690097866",
+          "name": "Fable-xboxone-e1586690097866",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Fable-xboxone-e1586690097866.png"
+        },
+        {
+          "id": "img_1778467712512_0.6512255954203838_Faith_cover",
+          "name": "Faith_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Faith_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.9994060310284105_Fallout_4_cover_art",
+          "name": "Fallout_4_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Fallout_4_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.11849419722289223_Far_Cry_3_PAL_box_art",
+          "name": "Far_Cry_3_PAL_box_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Far_Cry_3_PAL_box_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.5295882932315292_fEszkp",
+          "name": "fEszkp",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/fEszkp.png"
+        },
+        {
+          "id": "img_1778467712512_0.0448528755278127_ff009994-400a-46e0-9ee3-32455ae25be2.sized-1000x1000",
+          "name": "ff009994-400a-46e0-9ee3-32455ae25be2.sized-1000x1000",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/ff009994-400a-46e0-9ee3-32455ae25be2.sized-1000x1000.png"
+        },
+        {
+          "id": "img_1778467712512_0.6699113664245188_flat,750x,075,f-pad,750x1000,f8f8f8",
+          "name": "flat,750x,075,f-pad,750x1000,f8f8f8",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/flat,750x,075,f-pad,750x1000,f8f8f8.png"
+        },
+        {
+          "id": "img_1778467712512_0.8082344196393925_freddyshelp2-1684971653750",
+          "name": "freddyshelp2-1684971653750",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/freddyshelp2-1684971653750.png"
+        },
+        {
+          "id": "img_1778467712512_0.42563508960541285_Furi_video_game_logo",
+          "name": "Furi_video_game_logo",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Furi_video_game_logo.png"
+        },
+        {
+          "id": "img_1778467712512_0.8303419391510979_Ghostwire_Tokyo",
+          "name": "Ghostwire_Tokyo",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Ghostwire_Tokyo.png"
+        },
+        {
+          "id": "img_1778467712512_0.269221908245013_Ghost_of_Tsushima",
+          "name": "Ghost_of_Tsushima",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Ghost_of_Tsushima.png"
+        },
+        {
+          "id": "img_1778467712512_0.40332048194068626_GLy_41_WUAAU04p",
+          "name": "GLy_41_WUAAU04p",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/GLy_41_WUAAU04p.png"
+        },
+        {
+          "id": "img_1778467712512_0.2107606331206705_Goodbye_Volcano_High",
+          "name": "Goodbye_Volcano_High",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Goodbye_Volcano_High.png"
+        },
+        {
+          "id": "img_1778467712512_0.38296742006561446_H2x1_NSwitchDS_LoopHero_image1600w",
+          "name": "H2x1_NSwitchDS_LoopHero_image1600w",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/H2x1_NSwitchDS_LoopHero_image1600w.png"
+        },
+        {
+          "id": "img_1778467712512_0.5749630587268946_Half-Life_2_cover",
+          "name": "Half-Life_2_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Half-Life_2_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.5054262192058098_Half-Life_Cover_Art",
+          "name": "Half-Life_Cover_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Half-Life_Cover_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.21707765160071113_header",
+          "name": "header",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/header.png"
+        },
+        {
+          "id": "img_1778467712512_0.9155815220854238_header_japanese",
+          "name": "header_japanese",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/header_japanese.png"
+        },
+        {
+          "id": "img_1778467712512_0.4118705140263029_Heavy_Rain_Cover_Art",
+          "name": "Heavy_Rain_Cover_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Heavy_Rain_Cover_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.0015407486246160618_Hellblade_-_Senua's_Sacrifice",
+          "name": "Hellblade_-_Senua's_Sacrifice",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Hellblade_-_Senua's_Sacrifice.png"
+        },
+        {
+          "id": "img_1778467712512_0.2845328702705424_helltaker-portrait-768x1024",
+          "name": "helltaker-portrait-768x1024",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/helltaker-portrait-768x1024.png"
+        },
+        {
+          "id": "img_1778467712512_0.03421171871465489_Hitman_2015",
+          "name": "Hitman_2015",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Hitman_2015.png"
+        },
+        {
+          "id": "img_1778467712512_0.9552265229444769_images",
+          "name": "images",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/images.png"
+        },
+        {
+          "id": "img_1778467712512_0.14444118584595933_Immortals_Fenyx_Rising_cover_art",
+          "name": "Immortals_Fenyx_Rising_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Immortals_Fenyx_Rising_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.3238538828783297_inscryption-button-fin-1668034589939",
+          "name": "inscryption-button-fin-1668034589939",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/inscryption-button-fin-1668034589939.png"
+        },
+        {
+          "id": "img_1778467712512_0.660177758596559_Inside-The-Backrooms-pivigames",
+          "name": "Inside-The-Backrooms-pivigames",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Inside-The-Backrooms-pivigames.png"
+        },
+        {
+          "id": "img_1778467712512_0.005496232441045246_INSIDE_Xbox_One_cover_art",
+          "name": "INSIDE_Xbox_One_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/INSIDE_Xbox_One_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.9275883841414194_Layers_of_Fear_Cover",
+          "name": "Layers_of_Fear_Cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Layers_of_Fear_Cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.16472008432972018_Lies_of_p_cover_art",
+          "name": "Lies_of_p_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Lies_of_p_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.3280637511305978_Little_Nightmares_Box_Art",
+          "name": "Little_Nightmares_Box_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Little_Nightmares_Box_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.8813183753023296_maxresdefault (1)",
+          "name": "maxresdefault (1)",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/maxresdefault (1).png"
+        },
+        {
+          "id": "img_1778467712512_0.26075565107609444_maxresdefault",
+          "name": "maxresdefault",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/maxresdefault.png"
+        },
+        {
+          "id": "img_1778467712512_0.4944938372924682_Metal_Gear_Rising_Revengeance_box_artwork",
+          "name": "Metal_Gear_Rising_Revengeance_box_artwork",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Metal_Gear_Rising_Revengeance_box_artwork.png"
+        },
+        {
+          "id": "img_1778467712512_0.2837032326045664_Metaphor_Refantazio_Cover_Art",
+          "name": "Metaphor_Refantazio_Cover_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Metaphor_Refantazio_Cover_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.7371199960646708_Metroid_Dread_Banner",
+          "name": "Metroid_Dread_Banner",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Metroid_Dread_Banner.png"
+        },
+        {
+          "id": "img_1778467712512_0.7387711486003936_Metro_2033_Game_Cover",
+          "name": "Metro_2033_Game_Cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Metro_2033_Game_Cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.783626035530497_MHWilds_deluxe",
+          "name": "MHWilds_deluxe",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MHWilds_deluxe.png"
+        },
+        {
+          "id": "img_1778467712512_0.36210687240149353_MiddleEarthShadowOfWar",
+          "name": "MiddleEarthShadowOfWar",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MiddleEarthShadowOfWar.png"
+        },
+        {
+          "id": "img_1778467712512_0.9291005913833847_MV5BMGMxOTFkMTgtZjQwZS00YWFlLWFlZjgtMGU2MDA0YWQzMjllXkEyXkFqcGc@._V1_FMjpg_UX1000_",
+          "name": "MV5BMGMxOTFkMTgtZjQwZS00YWFlLWFlZjgtMGU2MDA0YWQzMjllXkEyXkFqcGc@._V1_FMjpg_UX1000_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BMGMxOTFkMTgtZjQwZS00YWFlLWFlZjgtMGU2MDA0YWQzMjllXkEyXkFqcGc@._V1_FMjpg_UX1000_.png"
+        },
+        {
+          "id": "img_1778467712512_0.6940752623997584_MV5BMGYwNTExNTItN2M0ZC00YjYzLTkzZjgtYjFjMTBlN2FhYmU3XkEyXkFqcGdeQXVyMjM5NzU3OTM@._V1_QL75_UY281_CR11,0,190,281_",
+          "name": "MV5BMGYwNTExNTItN2M0ZC00YjYzLTkzZjgtYjFjMTBlN2FhYmU3XkEyXkFqcGdeQXVyMjM5NzU3OTM@._V1_QL75_UY281_CR11,0,190,281_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BMGYwNTExNTItN2M0ZC00YjYzLTkzZjgtYjFjMTBlN2FhYmU3XkEyXkFqcGdeQXVyMjM5NzU3OTM@._V1_QL75_UY281_CR11,0,190,281_.png"
+        },
+        {
+          "id": "img_1778467712512_0.35715769532860775_MV5BMjliZGZmYWMtMzI3OC00NzIyLWI0ODMtNjMwN2Q0ODMwMTk0XkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_",
+          "name": "MV5BMjliZGZmYWMtMzI3OC00NzIyLWI0ODMtNjMwN2Q0ODMwMTk0XkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BMjliZGZmYWMtMzI3OC00NzIyLWI0ODMtNjMwN2Q0ODMwMTk0XkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.09031084815410628_MV5BMTYzYzIxMjktMDM4NS00MTM5LWJlMDgtNDRhMDNhOGRmY2EwXkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_",
+          "name": "MV5BMTYzYzIxMjktMDM4NS00MTM5LWJlMDgtNDRhMDNhOGRmY2EwXkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BMTYzYzIxMjktMDM4NS00MTM5LWJlMDgtNDRhMDNhOGRmY2EwXkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.7645652683035083_MV5BMzRlYTE3MjgtMWUzYy00Mjk4LWIwYTYtZDNhNjk3MGU5NjNkXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BMzRlYTE3MjgtMWUzYy00Mjk4LWIwYTYtZDNhNjk3MGU5NjNkXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BMzRlYTE3MjgtMWUzYy00Mjk4LWIwYTYtZDNhNjk3MGU5NjNkXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.7275936667409996_MV5BNDNmMGUwZjQtY2M0My00YjcxLWE1ZWEtMDg2YjVkMTBmOGQzXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_",
+          "name": "MV5BNDNmMGUwZjQtY2M0My00YjcxLWE1ZWEtMDg2YjVkMTBmOGQzXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BNDNmMGUwZjQtY2M0My00YjcxLWE1ZWEtMDg2YjVkMTBmOGQzXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.png"
+        },
+        {
+          "id": "img_1778467712512_0.12486831630674111_MV5BNmYxMmJhODAtZThhZS00YzRkLTkyNTgtN2Q4ZWJiMGIwZWY3XkEyXkFqcGdeQXVyMTYxNDMyNjQ1._V1_",
+          "name": "MV5BNmYxMmJhODAtZThhZS00YzRkLTkyNTgtN2Q4ZWJiMGIwZWY3XkEyXkFqcGdeQXVyMTYxNDMyNjQ1._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BNmYxMmJhODAtZThhZS00YzRkLTkyNTgtN2Q4ZWJiMGIwZWY3XkEyXkFqcGdeQXVyMTYxNDMyNjQ1._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.5937932004783738_MV5BNzJiNmQwNzYtMmQ0My00ZDFiLTk2NDctYjVjMTI0MzNjYjc0XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BNzJiNmQwNzYtMmQ0My00ZDFiLTk2NDctYjVjMTI0MzNjYjc0XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BNzJiNmQwNzYtMmQ0My00ZDFiLTk2NDctYjVjMTI0MzNjYjc0XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.11690184239238888_MV5BNzY2NmVhZTgtZGRiOS00MDcwLWIwODItZTJiMWI4N2U3NmM5XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BNzY2NmVhZTgtZGRiOS00MDcwLWIwODItZTJiMWI4N2U3NmM5XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BNzY2NmVhZTgtZGRiOS00MDcwLWIwODItZTJiMWI4N2U3NmM5XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.16249744386746223_MV5BODY1ZjUxM2UtOGQwYS00ZGU0LWIwODEtMjA0MTlkZDdjMTRhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BODY1ZjUxM2UtOGQwYS00ZGU0LWIwODEtMjA0MTlkZDdjMTRhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BODY1ZjUxM2UtOGQwYS00ZGU0LWIwODEtMjA0MTlkZDdjMTRhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.8137713974833581_MV5BOTFhZTM4YjgtYTRmNy00NTU1LWI5NjUtNGZmZmE5Mjk0MmRjXkEyXkFqcGc@._V1_FMjpg_UX1000_",
+          "name": "MV5BOTFhZTM4YjgtYTRmNy00NTU1LWI5NjUtNGZmZmE5Mjk0MmRjXkEyXkFqcGc@._V1_FMjpg_UX1000_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BOTFhZTM4YjgtYTRmNy00NTU1LWI5NjUtNGZmZmE5Mjk0MmRjXkEyXkFqcGc@._V1_FMjpg_UX1000_.png"
+        },
+        {
+          "id": "img_1778467712512_0.04327023370916949_MV5BOTI1ODg1ZjgtYWUwOS00OTY2LWJlMjktMGVhMjJhOThjMTdhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BOTI1ODg1ZjgtYWUwOS00OTY2LWJlMjktMGVhMjJhOThjMTdhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BOTI1ODg1ZjgtYWUwOS00OTY2LWJlMjktMGVhMjJhOThjMTdhXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.48293307456068135_MV5BYjAxNmYyNTItMjM3Ny00NWM4LWJkNmYtNzE1ZWY1MDBiZGEzXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BYjAxNmYyNTItMjM3Ny00NWM4LWJkNmYtNzE1ZWY1MDBiZGEzXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BYjAxNmYyNTItMjM3Ny00NWM4LWJkNmYtNzE1ZWY1MDBiZGEzXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.34431221347409424_MV5BYjJhZDgyZjEtODA3Ni00MjNiLWI3NjMtOGM5NjEzMWY1NGY1XkEyXkFqcGdeQXVyNjk5MDk3MTY@._V1_",
+          "name": "MV5BYjJhZDgyZjEtODA3Ni00MjNiLWI3NjMtOGM5NjEzMWY1NGY1XkEyXkFqcGdeQXVyNjk5MDk3MTY@._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BYjJhZDgyZjEtODA3Ni00MjNiLWI3NjMtOGM5NjEzMWY1NGY1XkEyXkFqcGdeQXVyNjk5MDk3MTY@._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.10949198791671366_MV5BYjljZjQ1OGEtMWZhZC00MzliLWFkNjAtYjk1YzFlNWNiZGNiXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BYjljZjQ1OGEtMWZhZC00MzliLWFkNjAtYjk1YzFlNWNiZGNiXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BYjljZjQ1OGEtMWZhZC00MzliLWFkNjAtYjk1YzFlNWNiZGNiXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.5865820621112741_MV5BYWMyODJiNzUtZjI1NC00YTNhLWE4OTUtZDc3YjQ5NTU5MmM2XkEyXkFqcGdeQXVyMTg2NzgzMDE@._V1_FMjpg_UX1000_",
+          "name": "MV5BYWMyODJiNzUtZjI1NC00YTNhLWE4OTUtZDc3YjQ5NTU5MmM2XkEyXkFqcGdeQXVyMTg2NzgzMDE@._V1_FMjpg_UX1000_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BYWMyODJiNzUtZjI1NC00YTNhLWE4OTUtZDc3YjQ5NTU5MmM2XkEyXkFqcGdeQXVyMTg2NzgzMDE@._V1_FMjpg_UX1000_.png"
+        },
+        {
+          "id": "img_1778467712512_0.10414774413377337_MV5BYzJhYTgzYzYtYjdjOC00ZDYyLTg0NjYtZDEwMDlkODA3OWI4XkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_",
+          "name": "MV5BYzJhYTgzYzYtYjdjOC00ZDYyLTg0NjYtZDEwMDlkODA3OWI4XkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BYzJhYTgzYzYtYjdjOC00ZDYyLTg0NjYtZDEwMDlkODA3OWI4XkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.7259479819624396_MV5BZjFkNTA0OGEtYjk5OC00ZDM1LWJmN2QtM2JjY2M1ZTAyYjZlXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "name": "MV5BZjFkNTA0OGEtYjk5OC00ZDM1LWJmN2QtM2JjY2M1ZTAyYjZlXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BZjFkNTA0OGEtYjk5OC00ZDM1LWJmN2QtM2JjY2M1ZTAyYjZlXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.png"
+        },
+        {
+          "id": "img_1778467712512_0.2273816199019948_MV5BZTAwZGY4NTYtZjU0Ny00MDAzLThhOTgtMmU3ZWJiNWRhMTRiXkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_FMjpg_UX1000_",
+          "name": "MV5BZTAwZGY4NTYtZjU0Ny00MDAzLThhOTgtMmU3ZWJiNWRhMTRiXkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_FMjpg_UX1000_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BZTAwZGY4NTYtZjU0Ny00MDAzLThhOTgtMmU3ZWJiNWRhMTRiXkEyXkFqcGdeQXVyMTk2OTAzNTI@._V1_FMjpg_UX1000_.png"
+        },
+        {
+          "id": "img_1778467712512_0.5843252750534985_MV5BZTMzZjAzYzctMDhiYi00YTNlLWE2NmMtNzJhOWM4MGNhOGI5XkEyXkFqcGc@._V1_FMjpg_UX1000_",
+          "name": "MV5BZTMzZjAzYzctMDhiYi00YTNlLWE2NmMtNzJhOWM4MGNhOGI5XkEyXkFqcGc@._V1_FMjpg_UX1000_",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/MV5BZTMzZjAzYzctMDhiYi00YTNlLWE2NmMtNzJhOWM4MGNhOGI5XkEyXkFqcGc@._V1_FMjpg_UX1000_.png"
+        },
+        {
+          "id": "img_1778467712512_0.20522094077631792_Night_in_the_Woods",
+          "name": "Night_in_the_Woods",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Night_in_the_Woods.png"
+        },
+        {
+          "id": "img_1778467712512_0.36463702110388596_Nioh_cover_art",
+          "name": "Nioh_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Nioh_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.1756338727855945_Omori_cover",
+          "name": "Omori_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Omori_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.8422094896910521_ori-and-the-will-of-the-wisps_1ch5",
+          "name": "ori-and-the-will-of-the-wisps_1ch5",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/ori-and-the-will-of-the-wisps_1ch5.png"
+        },
+        {
+          "id": "img_1778467712512_0.3835869121539084_OW_Epic_PortraitStorefront_1200x1600-99dad6c305834ce163cabb944d909304",
+          "name": "OW_Epic_PortraitStorefront_1200x1600-99dad6c305834ce163cabb944d909304",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/OW_Epic_PortraitStorefront_1200x1600-99dad6c305834ce163cabb944d909304.png"
+        },
+        {
+          "id": "img_1778467712512_0.8034051784488463_pDm46Nye9OTyuH210Se9cWyCVx7OuXWb",
+          "name": "pDm46Nye9OTyuH210Se9cWyCVx7OuXWb",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/pDm46Nye9OTyuH210Se9cWyCVx7OuXWb.png"
+        },
+        {
+          "id": "img_1778467712512_0.6912057655752701_png-clipart-dying-light-2-dying-light-the-following-techland-xbox-one-dying-light-tshirt-video-game",
+          "name": "png-clipart-dying-light-2-dying-light-the-following-techland-xbox-one-dying-light-tshirt-video-game",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/png-clipart-dying-light-2-dying-light-the-following-techland-xbox-one-dying-light-tshirt-video-game.png"
+        },
+        {
+          "id": "img_1778467712512_0.017617684986730886_Portal2cover",
+          "name": "Portal2cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Portal2cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.03650185826721963_prince-persia-lost-crown-3054154",
+          "name": "prince-persia-lost-crown-3054154",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/prince-persia-lost-crown-3054154.png"
+        },
+        {
+          "id": "img_1778467712512_0.8792360886934303_Quake1cover",
+          "name": "Quake1cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Quake1cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.12311540447350389_Resident_Evil_Village",
+          "name": "Resident_Evil_Village",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Resident_Evil_Village.png"
+        },
+        {
+          "id": "img_1778467712512_0.11118257446526103_Saints_and_Sinners_cover_art",
+          "name": "Saints_and_Sinners_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Saints_and_Sinners_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.09928009443504882_Screenshot 2024-04-21 205440",
+          "name": "Screenshot 2024-04-21 205440",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 205440.png"
+        },
+        {
+          "id": "img_1778467712512_0.01723566351667305_Screenshot 2024-04-21 205600",
+          "name": "Screenshot 2024-04-21 205600",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 205600.png"
+        },
+        {
+          "id": "img_1778467712512_0.2077773069434934_Screenshot 2024-04-21 210505",
+          "name": "Screenshot 2024-04-21 210505",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 210505.png"
+        },
+        {
+          "id": "img_1778467712512_0.15849691473664684_Screenshot 2024-04-21 210754",
+          "name": "Screenshot 2024-04-21 210754",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 210754.png"
+        },
+        {
+          "id": "img_1778467712512_0.30115888238886845_Screenshot 2024-04-21 210858",
+          "name": "Screenshot 2024-04-21 210858",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 210858.png"
+        },
+        {
+          "id": "img_1778467712512_0.6786303037796644_Screenshot 2024-04-21 210936",
+          "name": "Screenshot 2024-04-21 210936",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 210936.png"
+        },
+        {
+          "id": "img_1778467712512_0.7186087690005063_Screenshot 2024-04-21 211345",
+          "name": "Screenshot 2024-04-21 211345",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 211345.png"
+        },
+        {
+          "id": "img_1778467712512_0.6289641927074049_Screenshot 2024-04-21 211412",
+          "name": "Screenshot 2024-04-21 211412",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 211412.png"
+        },
+        {
+          "id": "img_1778467712512_0.893389268499648_Screenshot 2024-04-21 211453",
+          "name": "Screenshot 2024-04-21 211453",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 211453.png"
+        },
+        {
+          "id": "img_1778467712512_0.4498501460482718_Screenshot 2024-04-21 211659",
+          "name": "Screenshot 2024-04-21 211659",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 211659.png"
+        },
+        {
+          "id": "img_1778467712512_0.937895504375132_Screenshot 2024-04-21 211726",
+          "name": "Screenshot 2024-04-21 211726",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 211726.png"
+        },
+        {
+          "id": "img_1778467712512_0.07973118034920801_Screenshot 2024-04-21 211959",
+          "name": "Screenshot 2024-04-21 211959",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 211959.png"
+        },
+        {
+          "id": "img_1778467712512_0.35416217028333175_Screenshot 2024-04-21 212542",
+          "name": "Screenshot 2024-04-21 212542",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 212542.png"
+        },
+        {
+          "id": "img_1778467712512_0.8913580008690957_Screenshot 2024-04-21 212730",
+          "name": "Screenshot 2024-04-21 212730",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 212730.png"
+        },
+        {
+          "id": "img_1778467712512_0.9088477836259249_Screenshot 2024-04-21 212830",
+          "name": "Screenshot 2024-04-21 212830",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 212830.png"
+        },
+        {
+          "id": "img_1778467712512_0.09104814739775424_Screenshot 2024-04-21 213009",
+          "name": "Screenshot 2024-04-21 213009",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 213009.png"
+        },
+        {
+          "id": "img_1778467712512_0.8420318926991094_Screenshot 2024-04-21 213241",
+          "name": "Screenshot 2024-04-21 213241",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 213241.png"
+        },
+        {
+          "id": "img_1778467712512_0.4734466365515573_Screenshot 2024-04-21 213357",
+          "name": "Screenshot 2024-04-21 213357",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 213357.png"
+        },
+        {
+          "id": "img_1778467712512_0.09689288261187912_Screenshot 2024-04-21 213421",
+          "name": "Screenshot 2024-04-21 213421",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 213421.png"
+        },
+        {
+          "id": "img_1778467712512_0.39487942015863786_Screenshot 2024-04-21 213747",
+          "name": "Screenshot 2024-04-21 213747",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 213747.png"
+        },
+        {
+          "id": "img_1778467712512_0.6396384069878247_Screenshot 2024-04-21 213807",
+          "name": "Screenshot 2024-04-21 213807",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 213807.png"
+        },
+        {
+          "id": "img_1778467712512_0.8431486661769935_Screenshot 2024-04-21 213906",
+          "name": "Screenshot 2024-04-21 213906",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 213906.png"
+        },
+        {
+          "id": "img_1778467712512_0.09181722244687707_Screenshot 2024-04-21 214512",
+          "name": "Screenshot 2024-04-21 214512",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 214512.png"
+        },
+        {
+          "id": "img_1778467712512_0.7848058084294438_Screenshot 2024-04-21 215155",
+          "name": "Screenshot 2024-04-21 215155",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 215155.png"
+        },
+        {
+          "id": "img_1778467712512_0.3757236850677076_Screenshot 2024-04-21 215253",
+          "name": "Screenshot 2024-04-21 215253",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 215253.png"
+        },
+        {
+          "id": "img_1778467712512_0.8075103661469487_Screenshot 2024-04-21 215339",
+          "name": "Screenshot 2024-04-21 215339",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 215339.png"
+        },
+        {
+          "id": "img_1778467712512_0.11164334021811839_Screenshot 2024-04-21 215541",
+          "name": "Screenshot 2024-04-21 215541",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 215541.png"
+        },
+        {
+          "id": "img_1778467712512_0.3886320166475825_Screenshot 2024-04-21 215637",
+          "name": "Screenshot 2024-04-21 215637",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 215637.png"
+        },
+        {
+          "id": "img_1778467712512_0.9943371681878116_Screenshot 2024-04-21 215821",
+          "name": "Screenshot 2024-04-21 215821",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 215821.png"
+        },
+        {
+          "id": "img_1778467712512_0.9492214189763877_Screenshot 2024-04-21 220044",
+          "name": "Screenshot 2024-04-21 220044",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 220044.png"
+        },
+        {
+          "id": "img_1778467712512_0.1874803605914055_Screenshot 2024-04-21 220123",
+          "name": "Screenshot 2024-04-21 220123",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 220123.png"
+        },
+        {
+          "id": "img_1778467712512_0.8401187115623365_Screenshot 2024-04-21 220230",
+          "name": "Screenshot 2024-04-21 220230",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 220230.png"
+        },
+        {
+          "id": "img_1778467712512_0.9013823687373806_Screenshot 2024-04-21 220506",
+          "name": "Screenshot 2024-04-21 220506",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 220506.png"
+        },
+        {
+          "id": "img_1778467712512_0.5799462055266138_Screenshot 2024-04-21 220804",
+          "name": "Screenshot 2024-04-21 220804",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 220804.png"
+        },
+        {
+          "id": "img_1778467712512_0.5358663461879731_Screenshot 2024-04-21 221127",
+          "name": "Screenshot 2024-04-21 221127",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 221127.png"
+        },
+        {
+          "id": "img_1778467712512_0.8167451770719234_Screenshot 2024-04-21 221245",
+          "name": "Screenshot 2024-04-21 221245",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 221245.png"
+        },
+        {
+          "id": "img_1778467712512_0.9434703044622932_Screenshot 2024-04-21 222327",
+          "name": "Screenshot 2024-04-21 222327",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 222327.png"
+        },
+        {
+          "id": "img_1778467712512_0.011153333195559556_Screenshot 2024-04-21 223631",
+          "name": "Screenshot 2024-04-21 223631",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-21 223631.png"
+        },
+        {
+          "id": "img_1778467712512_0.5295688942170884_Screenshot 2024-04-22 003116",
+          "name": "Screenshot 2024-04-22 003116",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 003116.png"
+        },
+        {
+          "id": "img_1778467712512_0.592897855588122_Screenshot 2024-04-22 003452",
+          "name": "Screenshot 2024-04-22 003452",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 003452.png"
+        },
+        {
+          "id": "img_1778467712512_0.9355974728116669_Screenshot 2024-04-22 004309",
+          "name": "Screenshot 2024-04-22 004309",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 004309.png"
+        },
+        {
+          "id": "img_1778467712512_0.5419590012246864_Screenshot 2024-04-22 004737",
+          "name": "Screenshot 2024-04-22 004737",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 004737.png"
+        },
+        {
+          "id": "img_1778467712512_0.049559121470590495_Screenshot 2024-04-22 005644",
+          "name": "Screenshot 2024-04-22 005644",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 005644.png"
+        },
+        {
+          "id": "img_1778467712512_0.12911482579872602_Screenshot 2024-04-22 010743",
+          "name": "Screenshot 2024-04-22 010743",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 010743.png"
+        },
+        {
+          "id": "img_1778467712512_0.03680519113440417_Screenshot 2024-04-22 010858",
+          "name": "Screenshot 2024-04-22 010858",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 010858.png"
+        },
+        {
+          "id": "img_1778467712512_0.23375011841113613_Screenshot 2024-04-22 010952",
+          "name": "Screenshot 2024-04-22 010952",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 010952.png"
+        },
+        {
+          "id": "img_1778467712512_0.5299061785648175_Screenshot 2024-04-22 011458",
+          "name": "Screenshot 2024-04-22 011458",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 011458.png"
+        },
+        {
+          "id": "img_1778467712512_0.18759253491540295_Screenshot 2024-04-22 011645",
+          "name": "Screenshot 2024-04-22 011645",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 011645.png"
+        },
+        {
+          "id": "img_1778467712512_0.9581947063860288_Screenshot 2024-04-22 013320",
+          "name": "Screenshot 2024-04-22 013320",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 013320.png"
+        },
+        {
+          "id": "img_1778467712512_0.5083377538190319_Screenshot 2024-04-22 013613",
+          "name": "Screenshot 2024-04-22 013613",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 013613.png"
+        },
+        {
+          "id": "img_1778467712512_0.7878137088941211_Screenshot 2024-04-22 033123",
+          "name": "Screenshot 2024-04-22 033123",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 033123.png"
+        },
+        {
+          "id": "img_1778467712512_0.4481898044238696_Screenshot 2024-04-22 033156",
+          "name": "Screenshot 2024-04-22 033156",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 033156.png"
+        },
+        {
+          "id": "img_1778467712512_0.28394654041510914_Screenshot 2024-04-22 033251",
+          "name": "Screenshot 2024-04-22 033251",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 033251.png"
+        },
+        {
+          "id": "img_1778467712512_0.28544300942922507_Screenshot 2024-04-22 033354",
+          "name": "Screenshot 2024-04-22 033354",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 033354.png"
+        },
+        {
+          "id": "img_1778467712512_0.835726083820032_Screenshot 2024-04-22 033718",
+          "name": "Screenshot 2024-04-22 033718",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 033718.png"
+        },
+        {
+          "id": "img_1778467712512_0.04510869363924663_Screenshot 2024-04-22 034022",
+          "name": "Screenshot 2024-04-22 034022",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 034022.png"
+        },
+        {
+          "id": "img_1778467712512_0.6976425602688924_Screenshot 2024-04-22 034145",
+          "name": "Screenshot 2024-04-22 034145",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 034145.png"
+        },
+        {
+          "id": "img_1778467712512_0.5363177586695845_Screenshot 2024-04-22 034825",
+          "name": "Screenshot 2024-04-22 034825",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 034825.png"
+        },
+        {
+          "id": "img_1778467712512_0.7456615692642109_Screenshot 2024-04-22 035105",
+          "name": "Screenshot 2024-04-22 035105",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 035105.png"
+        },
+        {
+          "id": "img_1778467712512_0.7530160634227197_Screenshot 2024-04-22 035853",
+          "name": "Screenshot 2024-04-22 035853",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 035853.png"
+        },
+        {
+          "id": "img_1778467712512_0.3989430011999646_Screenshot 2024-04-22 040512",
+          "name": "Screenshot 2024-04-22 040512",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-04-22 040512.png"
+        },
+        {
+          "id": "img_1778467712512_0.09463033162333756_Screenshot 2024-08-13 214139",
+          "name": "Screenshot 2024-08-13 214139",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-08-13 214139.png"
+        },
+        {
+          "id": "img_1778467712512_0.11800462518865829_Screenshot 2024-08-13 220900",
+          "name": "Screenshot 2024-08-13 220900",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-08-13 220900.png"
+        },
+        {
+          "id": "img_1778467712512_0.7820441462408683_Screenshot 2024-08-13 231010",
+          "name": "Screenshot 2024-08-13 231010",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2024-08-13 231010.png"
+        },
+        {
+          "id": "img_1778467712512_0.9937946329575389_Screenshot 2025-01-18 104341",
+          "name": "Screenshot 2025-01-18 104341",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-01-18 104341.png"
+        },
+        {
+          "id": "img_1778467712512_0.3729200184600805_Screenshot 2025-01-18 104538",
+          "name": "Screenshot 2025-01-18 104538",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-01-18 104538.png"
+        },
+        {
+          "id": "img_1778467712512_0.9806448599459758_Screenshot 2025-01-18 105141",
+          "name": "Screenshot 2025-01-18 105141",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-01-18 105141.png"
+        },
+        {
+          "id": "img_1778467712512_0.704045085474426_Screenshot 2025-01-18 105255",
+          "name": "Screenshot 2025-01-18 105255",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-01-18 105255.png"
+        },
+        {
+          "id": "img_1778467712512_0.9254501021234359_Screenshot 2025-01-18 105632",
+          "name": "Screenshot 2025-01-18 105632",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-01-18 105632.png"
+        },
+        {
+          "id": "img_1778467712512_0.9663463439690971_Screenshot 2025-11-22 213021",
+          "name": "Screenshot 2025-11-22 213021",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213021.png"
+        },
+        {
+          "id": "img_1778467712512_0.6740591376506652_Screenshot 2025-11-22 213308",
+          "name": "Screenshot 2025-11-22 213308",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213308.png"
+        },
+        {
+          "id": "img_1778467712512_0.3819875888558919_Screenshot 2025-11-22 213412",
+          "name": "Screenshot 2025-11-22 213412",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213412.png"
+        },
+        {
+          "id": "img_1778467712512_0.5935135641034459_Screenshot 2025-11-22 213529",
+          "name": "Screenshot 2025-11-22 213529",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213529.png"
+        },
+        {
+          "id": "img_1778467712512_0.48232462529975006_Screenshot 2025-11-22 213603",
+          "name": "Screenshot 2025-11-22 213603",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213603.png"
+        },
+        {
+          "id": "img_1778467712512_0.14808140197735553_Screenshot 2025-11-22 213755",
+          "name": "Screenshot 2025-11-22 213755",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213755.png"
+        },
+        {
+          "id": "img_1778467712512_0.3822393637752255_Screenshot 2025-11-22 213839",
+          "name": "Screenshot 2025-11-22 213839",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213839.png"
+        },
+        {
+          "id": "img_1778467712512_0.07173444200088042_Screenshot 2025-11-22 213946",
+          "name": "Screenshot 2025-11-22 213946",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 213946.png"
+        },
+        {
+          "id": "img_1778467712512_0.5076206707291525_Screenshot 2025-11-22 214106",
+          "name": "Screenshot 2025-11-22 214106",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Screenshot 2025-11-22 214106.png"
+        },
+        {
+          "id": "img_1778467712512_0.3240591562486974_sddefault",
+          "name": "sddefault",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/sddefault.png"
+        },
+        {
+          "id": "img_1778467712512_0.8802360119411494_Sekiro_art",
+          "name": "Sekiro_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Sekiro_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.8419845506511331_Shadow_of_Mordor_cover_art",
+          "name": "Shadow_of_Mordor_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Shadow_of_Mordor_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.8057361748783269_Shadow_of_the_Tomb_Raider_cover",
+          "name": "Shadow_of_the_Tomb_Raider_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Shadow_of_the_Tomb_Raider_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.3821700177792473_Sheepy_A_Short_Adventure-563523882-mmed",
+          "name": "Sheepy_A_Short_Adventure-563523882-mmed",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Sheepy_A_Short_Adventure-563523882-mmed.png"
+        },
+        {
+          "id": "img_1778467712512_0.3631734789826837_Shovel_knight_cover",
+          "name": "Shovel_knight_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Shovel_knight_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.2639141969774087_Sifu_cover_art",
+          "name": "Sifu_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Sifu_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.8286963964100101_Slayers_X_Terminal_Aftermath_Vengance_of_the_Slayer_Cover_Art",
+          "name": "Slayers_X_Terminal_Aftermath_Vengance_of_the_Slayer_Cover_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Slayers_X_Terminal_Aftermath_Vengance_of_the_Slayer_Cover_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.29547387012171755_Soma_Game_Art",
+          "name": "Soma_Game_Art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Soma_Game_Art.png"
+        },
+        {
+          "id": "img_1778467712512_0.6253549060162262_SOS-image-component",
+          "name": "SOS-image-component",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/SOS-image-component.png"
+        },
+        {
+          "id": "img_1778467712512_0.8522712510934316_spore-button-crop-1642801492255",
+          "name": "spore-button-crop-1642801492255",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/spore-button-crop-1642801492255.png"
+        },
+        {
+          "id": "img_1778467712512_0.029410723536282157_Sporebox",
+          "name": "Sporebox",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Sporebox.png"
+        },
+        {
+          "id": "img_1778467712512_0.6108113612842538_spyro-the-dragon-1-button-1643354479684",
+          "name": "spyro-the-dragon-1-button-1643354479684",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/spyro-the-dragon-1-button-1643354479684.png"
+        },
+        {
+          "id": "img_1778467712512_0.5459978698635785_starfoxadventures-1646077949202",
+          "name": "starfoxadventures-1646077949202",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/starfoxadventures-1646077949202.png"
+        },
+        {
+          "id": "img_1778467712512_0.9463840016787914_State_of_decay_logo",
+          "name": "State_of_decay_logo",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/State_of_decay_logo.png"
+        },
+        {
+          "id": "img_1778467712512_0.3633828031817149_Styx_Master_of_Shadows_cover_art",
+          "name": "Styx_Master_of_Shadows_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Styx_Master_of_Shadows_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.26099890063943354_Subnautica_Below_Zero_cover_art",
+          "name": "Subnautica_Below_Zero_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Subnautica_Below_Zero_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.46206699990066746_SuperMarioGalaxy",
+          "name": "SuperMarioGalaxy",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/SuperMarioGalaxy.png"
+        },
+        {
+          "id": "img_1778467712512_0.7915924995338286_supermariostrikers-sq-1644281962229",
+          "name": "supermariostrikers-sq-1644281962229",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/supermariostrikers-sq-1644281962229.png"
+        },
+        {
+          "id": "img_1778467712512_0.7632521565901723_the-last-of-us-part-ii-remastered_bhzr",
+          "name": "the-last-of-us-part-ii-remastered_bhzr",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/the-last-of-us-part-ii-remastered_bhzr.png"
+        },
+        {
+          "id": "img_1778467712512_0.7628359780396389_The_Beast_Inside-523429666-large",
+          "name": "The_Beast_Inside-523429666-large",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Beast_Inside-523429666-large.png"
+        },
+        {
+          "id": "img_1778467712512_0.8881409476024663_The_Binding_of_Issac_Rebirth_cover",
+          "name": "The_Binding_of_Issac_Rebirth_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Binding_of_Issac_Rebirth_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.10212142320689188_The_Callisto_Protocol_cover_art",
+          "name": "The_Callisto_Protocol_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Callisto_Protocol_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.41795431360264523_The_Evil_Within_boxart",
+          "name": "The_Evil_Within_boxart",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Evil_Within_boxart.png"
+        },
+        {
+          "id": "img_1778467712512_0.7109191647827308_The_Legend_of_Zelda_Breath_of_the_Wild",
+          "name": "The_Legend_of_Zelda_Breath_of_the_Wild",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Legend_of_Zelda_Breath_of_the_Wild.png"
+        },
+        {
+          "id": "img_1778467712512_0.19028755994237734_The_Legend_of_Zelda_Phantom_Hourglass_Game_Cover",
+          "name": "The_Legend_of_Zelda_Phantom_Hourglass_Game_Cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Legend_of_Zelda_Phantom_Hourglass_Game_Cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.7373226329250964_The_Witness_cover",
+          "name": "The_Witness_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Witness_cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.29148576013040084_The_Wolf_Among_Us_cover_art",
+          "name": "The_Wolf_Among_Us_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/The_Wolf_Among_Us_cover_art.png"
+        },
+        {
+          "id": "img_1778467712512_0.022701692116046668_TombRaider2013",
+          "name": "TombRaider2013",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/TombRaider2013.png"
+        },
+        {
+          "id": "img_1778467712512_0.9991226333562756_ultrakill-1649459578320",
+          "name": "ultrakill-1649459578320",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/ultrakill-1649459578320.png"
+        },
+        {
+          "id": "img_1778467712512_0.3751702165370774_unnamed",
+          "name": "unnamed",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/unnamed.png"
+        },
+        {
+          "id": "img_1778467712512_0.2425381143675963_Warhammer_40,000_Boltgun_Cover",
+          "name": "Warhammer_40,000_Boltgun_Cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Warhammer_40,000_Boltgun_Cover.png"
+        },
+        {
+          "id": "img_1778467712512_0.12913111426039592_What_Remains_of_Edith_Finch_cover_art",
+          "name": "What_Remains_of_Edith_Finch_cover_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/What_Remains_of_Edith_Finch_cover_art.png"
+        }
+      ],
+      "s": [
+        {
+          "id": "Vampire_Survivors_key_art_1778467733092_0.976093222347012",
+          "name": "Vampire_Survivors_key_art",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Vampire_Survivors_key_art.png"
+        }
+      ],
+      "a": [
+        {
+          "id": "wolfenstein-ii-the-new-colossus-pc-game-steam-cover_1778467730968_0.6595850513684569",
+          "name": "wolfenstein-ii-the-new-colossus-pc-game-steam-cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/wolfenstein-ii-the-new-colossus-pc-game-steam-cover.png"
+        }
+      ],
+      "b": [
+        {
+          "id": "Wo_Long_Fallen_Dynasty_cover_1778467727161_0.8589891253750388",
+          "name": "Wo_Long_Fallen_Dynasty_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Wo_Long_Fallen_Dynasty_cover.png"
+        },
+        {
+          "id": "Wolfenstein_The_New_Order_cover_1778467729367_0.5818481625531692",
+          "name": "Wolfenstein_The_New_Order_cover",
+          "imgPath": "imagenes-tierlist/juegos/thumbnails/Wolfenstein_The_New_Order_cover.png"
+        }
+      ],
+      "c": [],
+      "d": [],
+      "meh": []
+    }
+  },
+  "movies": {
+    "rows": [
+      {
+        "id": "splus",
+        "label": "S+",
+        "color": "#ff0066"
+      },
+      {
+        "id": "s",
+        "label": "S",
+        "color": "#ff6600"
+      },
+      {
+        "id": "a",
+        "label": "A",
+        "color": "#ffcc00"
+      },
+      {
+        "id": "b",
+        "label": "B",
+        "color": "#66cc00"
+      },
+      {
+        "id": "c",
+        "label": "C",
+        "color": "#3399ff"
+      },
+      {
+        "id": "d",
+        "label": "D",
+        "color": "#6666cc"
+      },
+      {
+        "id": "meh",
+        "label": "Meh",
+        "color": "#888888"
+      }
+    ],
+    "items": {
+      "splus": [],
+      "s": [],
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "meh": []
+    }
+  },
+  "music": {
+    "rows": [
+      {
+        "id": "splus",
+        "label": "S+",
+        "color": "#ff0066"
+      },
+      {
+        "id": "s",
+        "label": "S",
+        "color": "#ff6600"
+      },
+      {
+        "id": "a",
+        "label": "A",
+        "color": "#ffcc00"
+      },
+      {
+        "id": "b",
+        "label": "B",
+        "color": "#66cc00"
+      },
+      {
+        "id": "c",
+        "label": "C",
+        "color": "#3399ff"
+      },
+      {
+        "id": "d",
+        "label": "D",
+        "color": "#6666cc"
+      },
+      {
+        "id": "meh",
+        "label": "Meh",
+        "color": "#888888"
+      }
+    ],
+    "items": {
+      "splus": [],
+      "s": [],
+      "a": [],
+      "b": [],
+      "c": [],
+      "d": [],
+      "meh": []
+    }
+  }
+}
