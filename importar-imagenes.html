@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Importar imágenes a Tierlist</title>
+    <style>
+        body {
+            background: #1d1924;
+            font-family: 'Inter', monospace;
+            color: white;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        button {
+            background: #9c0bea;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover { background: #71d826; color: #0d0b12; }
+        .progress { background: #0d0b12; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .log { background: #0a0810; padding: 15px; border-radius: 8px; font-size: 12px; max-height: 400px; overflow-y: auto; }
+        .success { color: #71d826; }
+        .error { color: #e91e14; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📥 Importador masivo de imágenes a Tierlist</h1>
+    <p>Este script tomará TODAS las imágenes de tu carpeta <strong>thumbnails/</strong> y las añadirá a la tierlist de Videojuegos en la fila S+</p>
+    
+    <button id="importBtn">🚀 IMPORTAR TODAS LAS IMÁGENES</button>
+    <button id="resetBtn" style="background:#333;">🗑️ Resetear tierlist (vaciar todo)</button>
+    
+    <div id="progress" class="progress">Esperando acción...</div>
+    <div id="log" class="log"></div>
+</div>
+
+<script>
+    // CONFIGURACIÓN - AJUSTA ESTAS RUTAS SEGÚN TU GITHUB
+    const IMAGE_BASE_URL = "imagenes-tierlist/juegos/thumbnails/";  // Ruta relativa en tu GitHub
+    const DEFAULT_ROW_ID = "splus";  // Fila donde se añadirán las imágenes (S+)
+    
+    // Lista de nombres de archivos que tienes en thumbnails/
+    // Como no podemos escanear la carpeta automáticamente desde JavaScript,
+    // necesitas escribir los nombres manualmente O usar este script de importación manual
+    
+    // Método 1: Importar automáticamente desde una lista predefinida
+    // (Necesitas generar la lista de nombres de archivos)
+    
+    let imagenesEncontradas = [];
+    
+    async function scanAndImportImages() {
+        const progressDiv = document.getElementById('progress');
+        const logDiv = document.getElementById('log');
+        
+        logDiv.innerHTML = '';
+        progressDiv.innerHTML = '⚠️ Este es un script manual. Tienes que escribir los nombres de tus imágenes.\n\n';
+        
+        // Mostrar instrucciones
+        const instrucciones = `
+            <p><strong>🔧 Cómo importar tus imágenes:</strong></p>
+            <ol>
+                <li>Abre la carpeta <code>thumbnails/</code> en tu PC</li>
+                <li>Copia los nombres de TODOS los archivos (Ctrl+A, Ctrl+C)</li>
+                <li>Pégalos en el recuadro de abajo (un nombre por línea)</li>
+                <li>Haz clic en "Importar desde lista"</li>
+            </ol>
+            <textarea id="fileList" rows="10" style="width:100%; background:#0a0810; color:white; border:1px solid #9c0bea; padding:10px; margin:10px 0;" placeholder="Pega aquí los nombres de los archivos...&#10;ejemplo:&#10;mario.png&#10;zelda.jpg&#10;sonic.gif"></textarea>
+            <button id="importFromListBtn">📥 Importar desde lista</button>
+        `;
+        
+        progressDiv.innerHTML = instrucciones;
+        
+        document.getElementById('importFromListBtn')?.addEventListener('click', () => {
+            const textarea = document.getElementById('fileList');
+            const lines = textarea.value.split('\n');
+            const files = lines.filter(l => l.trim() && /\.(png|jpg|jpeg|gif|webp)$/i.test(l.trim()));
+            
+            if (files.length === 0) {
+                alert("No se encontraron nombres de archivos válidos");
+                return;
+            }
+            
+            importImagesFromList(files);
+        });
+    }
+    
+    async function importImagesFromList(files) {
+        const logDiv = document.getElementById('log');
+        const progressDiv = document.getElementById('progress');
+        
+        logDiv.innerHTML = '<p class="success">🚀 Iniciando importación...</p>';
+        progressDiv.innerHTML = `Importando 0 / ${files.length}...`;
+        
+        // Cargar tierlist actual
+        const saved = localStorage.getItem("tierlist_data_v2");
+        let tierlistData = saved ? JSON.parse(saved) : null;
+        
+        if (!tierlistData || !tierlistData.games) {
+            // Crear estructura por defecto
+            tierlistData = {
+                games: {
+                    rows: [
+                        { id: "splus", label: "S+", color: "#ff0066" },
+                        { id: "s", label: "S", color: "#ff6600" },
+                        { id: "a", label: "A", color: "#ffcc00" },
+                        { id: "b", label: "B", color: "#66cc00" },
+                        { id: "c", label: "C", color: "#3399ff" },
+                        { id: "d", label: "D", color: "#6666cc" },
+                        { id: "meh", label: "Meh", color: "#888888" }
+                    ],
+                    items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
+                },
+                movies: { rows: [], items: {} },
+                music: { rows: [], items: {} }
+            };
+        }
+        
+        // Asegurar que existe la fila destino
+        if (!tierlistData.games.items[DEFAULT_ROW_ID]) {
+            tierlistData.games.items[DEFAULT_ROW_ID] = [];
+        }
+        
+        let imported = 0;
+        let failed = 0;
+        
+        for (let i = 0; i < files.length; i++) {
+            const fileName = files[i].trim();
+            const name = fileName.replace(/\.[^/.]+$/, "");
+            
+            // Verificar si la imagen ya existe (evitar duplicados)
+            const exists = tierlistData.games.items[DEFAULT_ROW_ID].some(item => item.name === name);
+            
+            if (!exists) {
+                const newItem = {
+                    id: `item_${Date.now()}_${Math.random()}_${i}`,
+                    name: name,
+                    imgPath: IMAGE_BASE_URL + fileName
+                };
+                tierlistData.games.items[DEFAULT_ROW_ID].push(newItem);
+                imported++;
+                logDiv.innerHTML += `<div>✅ ${fileName} → añadido (${imported}/${files.length})</div>`;
+            } else {
+                failed++;
+                logDiv.innerHTML += `<div class="error">⚠️ ${fileName} → ya existe, omitido</div>`;
+            }
+            
+            progressDiv.innerHTML = `Importando ${i + 1} / ${files.length}...`;
+            
+            // Pequeña pausa para no bloquear
+            await new Promise(r => setTimeout(r, 10));
+        }
+        
+        // Guardar en localStorage
+        localStorage.setItem("tierlist_data_v2", JSON.stringify(tierlistData));
+        
+        progressDiv.innerHTML = `<p class="success">✅ IMPORTACIÓN COMPLETADA!</p>
+                                 <p>📊 ${imported} imágenes añadidas | ${failed} omitidas</p>
+                                 <p>🔗 Ahora ve a <strong>tierlist.html</strong> y recarga la página para ver tus imágenes.</p>`;
+        
+        logDiv.innerHTML += `<p class="success">🎉 FINALIZADO! ${imported} imágenes importadas a la fila S+</p>`;
+        
+        // Botón para ir a tierlist
+        progressDiv.innerHTML += `<br><button onclick="location.href='tierlist.html'">🎮 IR A TIERLIST</button>`;
+    }
+    
+    function resetTierlist() {
+        if (confirm("¿Resetear TODOS los datos de la tierlist? Esto borrará todas las imágenes.")) {
+            localStorage.removeItem("tierlist_data_v2");
+            alert("✅ Datos reseteados. Recarga la página.");
+            location.reload();
+        }
+    }
+    
+    document.getElementById('importBtn')?.addEventListener('click', scanAndImportImages);
+    document.getElementById('resetBtn')?.addEventListener('click', resetTierlist);
+    
+    // Ejecutar automáticamente al cargar
+    scanAndImportImages();
+</script>
+</body>
+</html>
