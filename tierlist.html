@@ -5,7 +5,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio — Tierlist</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Estilos específicos para tierlist */
+        .tierlist-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: softAppear 0.55s ease-out forwards;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: #131017;
+            border: 1px solid rgba(156, 11, 234, 0.3);
+            color: #9ca8b8;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .category-btn:hover {
+            border-color: #71d826;
+            color: #71d826;
+        }
+
+        .category-btn.active {
+            background: rgba(156, 11, 234, 0.2);
+            border-color: #9c0bea;
+            color: #ffffff;
+        }
+
+        /* Tabla de tierlist */
+        .tier-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0d0b12;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tier-row {
+            border-bottom: 1px solid rgba(156, 11, 234, 0.15);
+        }
+
+        .tier-label {
+            width: 80px;
+            background: #131017;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 1rem 0.5rem;
+            color: #71d826;
+            border-right: 2px solid rgba(156, 11, 234, 0.3);
+            vertical-align: top;
+        }
+
+        .tier-items {
+            padding: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            min-height: 100px;
+            background: #0a0810;
+        }
+
+        .tier-item {
+            position: relative;
+            width: 80px;
+            background: #1a1625;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: grab;
+            transition: transform 0.2s;
+            border: 1px solid rgba(156, 11, 234, 0.2);
+        }
+
+        .tier-item:active {
+            cursor: grabbing;
+        }
+
+        .tier-item.dragging {
+            opacity: 0.5;
+        }
+
+        .tier-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-name {
+            font-size: 0.6rem;
+            text-align: center;
+            padding: 0.2rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: #aaa;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Botón editar (escondido pero accesible) */
+        .edit-trigger {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(30, 30, 40, 0.4);
+            border: none;
+            color: #4a4a5a;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 90;
+            opacity: 0.3;
+        }
+
+        .edit-trigger:hover {
+            opacity: 0.8;
+            color: #71d826;
+            background: rgba(30, 30, 40, 0.8);
+        }
+
+        /* Panel de edición (solo visible en modo edición) */
+        .edit-panel {
+            display: none;
+            position: fixed;
+            bottom: 60px;
+            right: 15px;
+            background: #1a1625;
+            border: 1px solid #9c0bea;
+            border-radius: 12px;
+            padding: 0.8rem;
+            z-index: 91;
+            gap: 0.5rem;
+            flex-direction: column;
+        }
+
+        .edit-panel.active {
+            display: flex;
+        }
+
+        .edit-btn {
+            background: #131017;
+            border: 1px solid rgba(156, 11, 234, 0.4);
+            color: #9ca8b8;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: all 0.2s;
+        }
+
+        .edit-btn:hover {
+            border-color: #71d826;
+            color: #71d826;
+        }
+
+        .edit-btn.danger {
+            border-color: #e91e14;
+        }
+
+        .edit-btn.danger:hover {
+            background: #e91e14;
+            color: white;
+        }
+
+        /* Indicador de modo edición */
+        .edit-mode-badge {
+            position: fixed;
+            top: 80px;
+            right: 15px;
+            background: #71d826;
+            color: #0d0b12;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: none;
+            z-index: 89;
+        }
+
+        .edit-mode-badge.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tier-item {
+                width: 60px;
+            }
+            .tier-label {
+                width: 60px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -22,12 +230,35 @@
     </nav>
 
     <main class="main-content">
-        <div class="placeholder-card">
-            <h2>Tierlist</h2>
-            <p>Rankings — en desarrollo</p>
+        <div class="tierlist-container">
+            <div class="category-tabs" id="categoryTabs">
+                <button class="category-btn active" data-cat="games">🎮 Videojuegos</button>
+                <button class="category-btn" data-cat="movies">🎬 Películas</button>
+                <button class="category-btn" data-cat="music">🎵 Álbumes</button>
+            </div>
+            <div id="tierlistContent">
+                <!-- Las tierlists se renderizan acá -->
+            </div>
         </div>
     </main>
 
-    <script src="js/main.js"></script>
+    <!-- Botón de edición (discreto) -->
+    <button class="edit-trigger" id="editTrigger">✎</button>
+
+    <!-- Panel de edición (aparece solo cuando estás en modo editor) -->
+    <div class="edit-panel" id="editPanel">
+        <button class="edit-btn" id="addImageBtn">➕ Añadir imagen</button>
+        <button class="edit-btn" id="addRowBtn">📊 Añadir fila</button>
+        <button class="edit-btn" id="resetTierlistBtn" class="danger">🔄 Resetear</button>
+        <button class="edit-btn danger" id="exitEditBtn">🚪 Salir edición</button>
+    </div>
+
+    <!-- Indicador de modo edición -->
+    <div class="edit-mode-badge" id="editModeBadge">✏️ MODO EDICIÓN</div>
+
+    <!-- Input oculto para subir imágenes -->
+    <input type="file" id="imageUpload" accept="image/*" style="display: none">
+
+    <script src="js/tierlist.js"></script>
 </body>
 </html>

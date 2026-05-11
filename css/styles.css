@@ -550,7 +550,33 @@ body.bg-gif::after {
     z-index: -1;
     background: rgba(0, 0, 0, 0.65);
 }
+/* ===== ESTILOS PARA TIERLIST ===== */
+.tier-item {
+    user-select: none;
+}
 
+.tier-item[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+.edit-row-btn {
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.edit-row-btn:hover {
+    opacity: 1;
+    color: #71d826 !important;
+}
+
+.delete-item-btn {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tier-item:hover .delete-item-btn {
+    opacity: 1;
+}
 /* ===== RESPONSIVE GENERAL ===== */
 @media (max-width: 680px) {
     .main-content {
