@@ -1,9 +1,8 @@
 // ===== CONFIGURACIÓN =====
 const ADMIN_PASSWORD = "3233";
-
-// RUTAS
 const IMAGE_BASE_PATH = "imagenes-tierlist/juegos/thumbnails/";
 const IMAGE_LIST_JSON = "imagenes-tierlist/juegos/thumbnails/imagenes.json";
+const GLOBAL_DATA_JSON = "tierlist-data.json";  // Archivo global en la raíz
 
 // Filas por defecto
 const DEFAULT_ROWS = [
@@ -16,89 +15,84 @@ const DEFAULT_ROWS = [
     { id: "meh", label: "Meh", color: "#888888" }
 ];
 
-// ===== ESTADO GLOBAL =====
 let currentCategory = "games";
 let isEditMode = false;
 let currentData = null;
 let dragSource = null;
 let tierlistData = null;
 
-// ===== CARGAR IMÁGENES AUTOMÁTICAMENTE =====
-async function loadAllImages() {
+// ===== CARGAR DATOS (PRIMERO EL GLOBAL, LUEGO IMÁGENES SI ES NECESARIO) =====
+async function loadData() {
     const container = document.getElementById("tierlistContent");
-    if (container) container.innerHTML = '<div style="text-align:center; padding:2rem;">📡 Cargando imágenes...</div>';
+    if (container) container.innerHTML = '<div style="text-align:center; padding:2rem;">📡 Cargando tierlist...</div>';
     
     try {
-        // 1. Cargar la lista de imágenes desde el JSON
+        // 1. Intentar cargar tierlist-data.json (disposición guardada)
+        const globalResponse = await fetch(GLOBAL_DATA_JSON);
+        if (globalResponse.ok) {
+            tierlistData = await globalResponse.json();
+            console.log("✅ Tierlist cargada desde archivo global");
+            renderTierlist();
+            return;
+        }
+    } catch (e) { /* No existe el archivo */ }
+    
+    // 2. No existe tierlist global → cargar imágenes locales y construir por defecto
+    await loadImagesFromLocal();
+}
+
+async function loadImagesFromLocal() {
+    try {
         const response = await fetch(IMAGE_LIST_JSON);
-        if (!response.ok) throw new Error(`No se encontró ${IMAGE_LIST_JSON}`);
+        if (!response.ok) throw new Error("No se encontró imagenes.json");
         const imageFiles = await response.json();
         
-        // 2. Cargar datos guardados o crear estructura nueva
-        const saved = localStorage.getItem("tierlist_data_v3");
-        if (saved) {
-            tierlistData = JSON.parse(saved);
-        } else {
-            tierlistData = {
-                games: {
-                    rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-                    items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
-                },
-                movies: {
-                    rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-                    items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
-                },
-                music: {
-                    rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-                    items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
-                }
-            };
-        }
-        
-        // 3. Si la fila S+ está vacía, añadir TODAS las imágenes automáticamente
-        if (tierlistData.games.items.splus.length === 0 && imageFiles.length > 0) {
-            console.log(`📥 Cargando ${imageFiles.length} imágenes automáticamente...`);
-            for (const fileName of imageFiles) {
-                const name = fileName.replace(/\.[^/.]+$/, "");
-                tierlistData.games.items.splus.push({
-                    id: `img_${Date.now()}_${Math.random()}_${name}`,
-                    name: name,
-                    imgPath: IMAGE_BASE_PATH + fileName
-                });
+        // Crear estructura nueva
+        tierlistData = {
+            games: {
+                rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
+                items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
+            },
+            movies: {
+                rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
+                items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
+            },
+            music: {
+                rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
+                items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
             }
-            localStorage.setItem("tierlist_data_v3", JSON.stringify(tierlistData));
-            console.log("✅ Imágenes cargadas automáticamente");
+        };
+        
+        // Añadir todas las imágenes a la fila S+ de games
+        for (const fileName of imageFiles) {
+            const name = fileName.replace(/\.[^/.]+$/, "");
+            tierlistData.games.items.splus.push({
+                id: `img_${Date.now()}_${Math.random()}_${name}`,
+                name: name,
+                imgPath: IMAGE_BASE_PATH + fileName
+            });
         }
         
+        // Guardar en localStorage como respaldo (no se usa para visitantes)
+        localStorage.setItem("tierlist_data_v3", JSON.stringify(tierlistData));
         renderTierlist();
+        console.log(`📥 Tierlist creada desde imágenes locales (${imageFiles.length} imágenes)`);
     } catch (error) {
-        console.error("Error cargando imágenes:", error);
-        const container = document.getElementById("tierlistContent");
-        if (container) {
-            container.innerHTML = `
-                <div style="text-align:center; padding:2rem; background:#0d0b12; border-radius:12px;">
-                    <p>❌ Error cargando las imágenes</p>
-                    <p style="font-size:0.8rem; color:#888;">Asegúrate de que existe el archivo:<br>${IMAGE_LIST_JSON}</p>
-                    <p style="font-size:0.7rem; margin-top:1rem;">🔧 Solución: Ejecuta el script PowerShell en la carpeta thumbnails/ para crear imagenes.json</p>
-                </div>
-            `;
-        }
+        console.error("Error cargando imágenes locales:", error);
+        document.getElementById("tierlistContent").innerHTML = `<div style="text-align:center; padding:2rem;">❌ No se pudo cargar la tierlist.<br>Asegúrate de que existe ${IMAGE_LIST_JSON}</div>`;
     }
 }
 
-// ===== RENDERIZADO PRINCIPAL =====
+// ===== RENDERIZADO (igual que antes) =====
 function renderTierlist() {
     if (!tierlistData) return;
-    
     currentData = tierlistData[currentCategory];
     const container = document.getElementById("tierlistContent");
     if (!container) return;
 
     let html = `<table class="tier-table" id="tierTable">`;
-    
     for (let row of currentData.rows) {
         const items = currentData.items[row.id] || [];
-        
         html += `
             <tr class="tier-row" data-row-id="${row.id}">
                 <td class="tier-label" style="border-left: 4px solid ${row.color};">
@@ -107,7 +101,6 @@ function renderTierlist() {
                 </td>
                 <td class="tier-items" data-row-id="${row.id}">
         `;
-        
         if (items.length === 0 && !isEditMode) {
             html += `<div style="color:#555; padding: 1rem;">— vacío —</div>`;
         } else {
@@ -115,20 +108,15 @@ function renderTierlist() {
                 const item = items[idx];
                 html += `
                     <div class="tier-item" draggable="${isEditMode}" data-row="${row.id}" data-index="${idx}" data-id="${item.id}">
-                        <img src="${item.imgPath}" 
-                             alt="${item.name}" 
-                             loading="lazy"
-                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/2a2438/aaa?text=404'">
+                        <img src="${item.imgPath}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/100x100/2a2438/aaa?text=404'">
                         <div class="item-name">${escapeHtml(item.name)}</div>
                         ${isEditMode ? `<button class="delete-item-btn" data-id="${item.id}" style="position:absolute;top:2px;right:2px;background:rgba(0,0,0,0.7);border:none;color:#e91e14;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;">✕</button>` : ""}
                     </div>
                 `;
             }
         }
-        
         html += `</td></tr>`;
     }
-    
     html += `</table>`;
     container.innerHTML = html;
 
@@ -137,12 +125,22 @@ function renderTierlist() {
         attachDeleteEvents();
         attachRowEditEvents();
     }
-    
-    const total = Object.values(currentData.items).flat().length;
-    console.log(`✅ Renderizado: ${currentCategory}, ${total} imágenes`);
 }
 
-// ===== DRAG & DROP =====
+// ===== GUARDAR DISPOSICIÓN ACTUAL COMO JSON GLOBAL =====
+function saveToGlobalJSON() {
+    const dataStr = JSON.stringify(tierlistData, null, 2);
+    const blob = new Blob([dataStr], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = GLOBAL_DATA_JSON;
+    a.click();
+    URL.revokeObjectURL(url);
+    alert(`✅ Archivo ${GLOBAL_DATA_JSON} descargado.\n📌 Súbelo a la raíz de tu repositorio en GitHub para que todos lo vean.`);
+}
+
+// ===== RESTO DE FUNCIONES (drag & drop, delete, filas, etc.) =====
 function attachDragEvents() {
     document.querySelectorAll('.tier-item[draggable="true"]').forEach(item => {
         item.removeEventListener('dragstart', dragStart);
@@ -150,7 +148,6 @@ function attachDragEvents() {
         item.addEventListener('dragstart', dragStart);
         item.addEventListener('dragend', dragEnd);
     });
-
     document.querySelectorAll('.tier-items').forEach(zone => {
         zone.removeEventListener('dragover', dragOver);
         zone.removeEventListener('drop', drop);
@@ -200,11 +197,9 @@ function drop(e) {
         targetItems.push(movedItem);
     }
     currentData.items[targetRowId] = targetItems;
-    saveToLocalStorage();
     renderTierlist();
 }
 
-// ===== ELIMINAR ÍTEM =====
 function attachDeleteEvents() {
     document.querySelectorAll('.delete-item-btn').forEach(btn => {
         btn.removeEventListener('click', deleteItem);
@@ -223,11 +218,9 @@ function deleteItem(e) {
             break;
         }
     }
-    saveToLocalStorage();
     renderTierlist();
 }
 
-// ===== EDITAR FILAS =====
 function attachRowEditEvents() {
     document.querySelectorAll('.edit-row-btn').forEach(btn => {
         btn.removeEventListener('click', editRowLabel);
@@ -239,119 +232,43 @@ function editRowLabel(e) {
     const rowId = e.target.closest('.edit-row-btn')?.getAttribute('data-row');
     const row = currentData.rows.find(r => r.id === rowId);
     if (!row) return;
-    const newLabel = prompt("Nuevo nombre para esta fila:", row.label);
+    const newLabel = prompt("Nuevo nombre:", row.label);
     if (newLabel && newLabel.trim()) {
         row.label = newLabel.trim();
-        saveToLocalStorage();
         renderTierlist();
     }
 }
 
-// ===== AÑADIR IMAGEN POR RUTA =====
-function addImageByPath() {
-    const fileName = prompt(
-        "📁 Nombre del archivo de imagen:\n\n" +
-        "Ejemplo: mario.png\n\n" +
-        "⚠️ La imagen debe estar en:\n" +
-        `   ${IMAGE_BASE_PATH}\n\n` +
-        "📌 No escribas la ruta completa, solo el nombre del archivo."
-    );
-    if (!fileName || !fileName.trim()) return;
-    
-    const rowOptions = currentData.rows.map((row, idx) => `${idx + 1}. ${row.label}`).join('\n');
-    const rowIndex = prompt(`¿A qué fila quieres añadirla?\n\n${rowOptions}\n\nNúmero (1-${currentData.rows.length}):`, "1");
-    
-    let targetRowId = null;
-    if (rowIndex && !isNaN(parseInt(rowIndex))) {
-        const idx = parseInt(rowIndex) - 1;
-        if (idx >= 0 && idx < currentData.rows.length) {
-            targetRowId = currentData.rows[idx].id;
-        }
-    }
-    if (!targetRowId) targetRowId = currentData.rows[0].id;
-    
-    const name = fileName.replace(/\.[^/.]+$/, "");
-    const newItem = {
-        id: `item_${Date.now()}_${Math.random()}`,
-        name: name,
-        imgPath: IMAGE_BASE_PATH + fileName.trim()
-    };
-    
-    if (!currentData.items[targetRowId]) currentData.items[targetRowId] = [];
-    currentData.items[targetRowId].push(newItem);
-    saveToLocalStorage();
-    renderTierlist();
-    alert(`✅ Imagen añadida: ${fileName}`);
-}
-
-// ===== AÑADIR FILA =====
 function addNewRow() {
-    const newLabel = prompt("Nombre de la nueva fila (ej: SS, Top, Favoritos):");
+    const newLabel = prompt("Nombre de la nueva fila:");
     if (!newLabel) return;
     const newId = `row_${Date.now()}`;
     currentData.rows.push({ id: newId, label: newLabel, color: "#888888" });
     currentData.items[newId] = [];
-    saveToLocalStorage();
     renderTierlist();
 }
 
-// ===== RESETEAR CATEGORÍA =====
 function resetCurrentCategory() {
-    if (confirm(`¿Resetear "${currentCategory}"? Se perderán todos los cambios.`)) {
+    if (confirm(`¿Resetear "${currentCategory}"? Se perderán los cambios.`)) {
         tierlistData[currentCategory] = {
             rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
             items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
         };
-        saveToLocalStorage();
         renderTierlist();
-        alert("✅ Categoría reseteada");
     }
 }
 
-// ===== EXPORTAR/IMPORTAR =====
-function exportData() {
-    const dataStr = JSON.stringify(tierlistData, null, 2);
-    const blob = new Blob([dataStr], {type: "application/json"});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `tierlist_${currentCategory}_${new Date().toISOString().slice(0,19)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    alert("✅ Tierlist exportada");
-}
-
-function importData() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'application/json';
-    input.onchange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-            try {
-                const imported = JSON.parse(ev.target.result);
-                if (confirm("¿Importar SOLO la categoría actual? (Cancelar = importar todo)")) {
-                    tierlistData[currentCategory] = imported;
-                } else {
-                    tierlistData = imported;
-                }
-                saveToLocalStorage();
-                renderTierlist();
-                alert("✅ Datos importados");
-            } catch(e) {
-                alert("Archivo inválido");
-            }
-        };
-        reader.readAsText(file);
+function addImageByPath() {
+    const fileName = prompt("Nombre del archivo (ej: mario.png):");
+    if (!fileName) return;
+    const name = fileName.replace(/\.[^/.]+$/, "");
+    const newItem = {
+        id: `item_${Date.now()}_${Math.random()}`,
+        name: name,
+        imgPath: IMAGE_BASE_PATH + fileName
     };
-    input.click();
-}
-
-function saveToLocalStorage() {
-    localStorage.setItem("tierlist_data_v3", JSON.stringify(tierlistData));
-    console.log("💾 Datos guardados");
+    currentData.items.splus.push(newItem);
+    renderTierlist();
 }
 
 function escapeHtml(str) {
@@ -363,7 +280,7 @@ function escapeHtml(str) {
     });
 }
 
-// ===== AUTENTICACIÓN =====
+// ===== AUTENTICACIÓN Y UI =====
 let authAttempts = 0;
 
 function enterEditMode() {
@@ -402,9 +319,7 @@ function switchCategory(category) {
 
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log("🚀 Tierlist inicializada");
-    
-    // Inicializar el panel de edición (botones)
+    // Configurar botones del panel de edición
     const editTrigger = document.getElementById('editTrigger');
     if (editTrigger) editTrigger.addEventListener('click', enterEditMode);
     
@@ -426,24 +341,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (isEditMode) resetCurrentCategory();
     });
     
-    // Botones extra
+    // Botón nuevo: Guardar disposición global
     const editPanel = document.getElementById('editPanel');
     if (editPanel) {
-        const exportBtn = document.createElement('button');
-        exportBtn.className = 'edit-btn';
-        exportBtn.textContent = '📤 Exportar';
-        exportBtn.onclick = exportData;
-        editPanel.appendChild(exportBtn);
-        
-        const importBtn = document.createElement('button');
-        importBtn.className = 'edit-btn';
-        importBtn.textContent = '📥 Importar';
-        importBtn.onclick = importData;
-        editPanel.appendChild(importBtn);
+        const saveGlobalBtn = document.createElement('button');
+        saveGlobalBtn.className = 'edit-btn';
+        saveGlobalBtn.textContent = '💾 Guardar disposición en servidor (JSON)';
+        saveGlobalBtn.onclick = () => {
+            if (isEditMode) saveToGlobalJSON();
+            else alert("Activa el modo edición primero.");
+        };
+        editPanel.appendChild(saveGlobalBtn);
     }
     
-    // Cargar imágenes automáticamente
-    await loadAllImages();
+    // Cargar datos (desde tierlist-data.json o desde imágenes locales)
+    await loadData();
     
     // Categorías
     document.querySelectorAll('.category-btn').forEach(btn => {
