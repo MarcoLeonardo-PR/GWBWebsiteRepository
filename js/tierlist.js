@@ -25,7 +25,7 @@ let tierlistData = null;
 async function loadData() {
     const container = document.getElementById("tierlistContent");
     if (container) container.innerHTML = '<div style="text-align:center; padding:2rem;">📡 Cargando tierlist...</div>';
-    
+
     try {
         // 1. Intentar cargar tierlist-data.json (disposición guardada)
         const globalResponse = await fetch(GLOBAL_DATA_JSON);
@@ -36,7 +36,7 @@ async function loadData() {
             return;
         }
     } catch (e) { /* No existe el archivo */ }
-    
+
     // 2. No existe tierlist global → cargar imágenes locales y construir por defecto
     await loadImagesFromLocal();
 }
@@ -46,7 +46,7 @@ async function loadImagesFromLocal() {
         const response = await fetch(IMAGE_LIST_JSON);
         if (!response.ok) throw new Error("No se encontró imagenes.json");
         const imageFiles = await response.json();
-        
+
         // Crear estructura nueva
         tierlistData = {
             games: {
@@ -62,7 +62,7 @@ async function loadImagesFromLocal() {
                 items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
             }
         };
-        
+
         // Añadir todas las imágenes a la fila S+ de games
         for (const fileName of imageFiles) {
             const name = fileName.replace(/\.[^/.]+$/, "");
@@ -72,7 +72,7 @@ async function loadImagesFromLocal() {
                 imgPath: IMAGE_BASE_PATH + fileName
             });
         }
-        
+
         // Guardar en localStorage como respaldo (no se usa para visitantes)
         localStorage.setItem("tierlist_data_v3", JSON.stringify(tierlistData));
         renderTierlist();
@@ -108,8 +108,10 @@ function renderTierlist() {
                 const item = items[idx];
                 html += `
                     <div class="tier-item" draggable="${isEditMode}" data-row="${row.id}" data-index="${idx}" data-id="${item.id}">
-                        <img src="${item.imgPath}" alt="${item.name}" loading="lazy" onerror="this.src='https://placehold.co/100x100/2a2438/aaa?text=404'">
-                        <div class="item-name">${escapeHtml(item.name)}</div>
+                        <img src="${item.imgPath}" 
+                            alt="${item.name}" 
+                            loading="lazy" 
+                            onerror="this.src='https://placehold.co/100x100/2a2438/aaa?text=404'">
                         ${isEditMode ? `<button class="delete-item-btn" data-id="${item.id}" style="position:absolute;top:2px;right:2px;background:rgba(0,0,0,0.7);border:none;color:#e91e14;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;">✕</button>` : ""}
                     </div>
                 `;
@@ -130,7 +132,7 @@ function renderTierlist() {
 // ===== GUARDAR DISPOSICIÓN ACTUAL COMO JSON GLOBAL =====
 function saveToGlobalJSON() {
     const dataStr = JSON.stringify(tierlistData, null, 2);
-    const blob = new Blob([dataStr], {type: "application/json"});
+    const blob = new Blob([dataStr], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -159,9 +161,9 @@ function attachDragEvents() {
 function dragStart(e) {
     const target = e.target.closest('.tier-item');
     if (!target) return;
-    dragSource = { 
-        rowId: target.getAttribute('data-row'), 
-        index: parseInt(target.getAttribute('data-index')) 
+    dragSource = {
+        rowId: target.getAttribute('data-row'),
+        index: parseInt(target.getAttribute('data-index'))
     };
     e.dataTransfer.setData('text/plain', '');
     target.classList.add('dragging');
@@ -183,12 +185,12 @@ function drop(e) {
     const targetRowId = dropZone.getAttribute('data-row-id');
     const dropTarget = e.target.closest('.tier-item');
     let targetIndex = dropTarget ? parseInt(dropTarget.getAttribute('data-index')) : -1;
-    
+
     const sourceItems = currentData.items[dragSource.rowId];
     if (!sourceItems || dragSource.index >= sourceItems.length) return;
     const [movedItem] = sourceItems.splice(dragSource.index, 1);
     movedItem.id = `${movedItem.name}_${Date.now()}_${Math.random()}`;
-    
+
     let targetItems = currentData.items[targetRowId];
     if (!targetItems) targetItems = [];
     if (targetIndex >= 0 && targetIndex <= targetItems.length) {
@@ -272,7 +274,7 @@ function addImageByPath() {
 }
 
 function escapeHtml(str) {
-    return str.replace(/[&<>]/g, function(m) {
+    return str.replace(/[&<>]/g, function (m) {
         if (m === '&') return '&amp;';
         if (m === '<') return '&lt;';
         if (m === '>') return '&gt;';
@@ -322,25 +324,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Configurar botones del panel de edición
     const editTrigger = document.getElementById('editTrigger');
     if (editTrigger) editTrigger.addEventListener('click', enterEditMode);
-    
+
     const exitBtn = document.getElementById('exitEditBtn');
     if (exitBtn) exitBtn.addEventListener('click', exitEditMode);
-    
+
     const addImageBtn = document.getElementById('addImageBtn');
     if (addImageBtn) addImageBtn.addEventListener('click', () => {
         if (isEditMode) addImageByPath();
     });
-    
+
     const addRowBtn = document.getElementById('addRowBtn');
     if (addRowBtn) addRowBtn.addEventListener('click', () => {
         if (isEditMode) addNewRow();
     });
-    
+
     const resetBtn = document.getElementById('resetTierlistBtn');
     if (resetBtn) resetBtn.addEventListener('click', () => {
         if (isEditMode) resetCurrentCategory();
     });
-    
+
     // Botón nuevo: Guardar disposición global
     const editPanel = document.getElementById('editPanel');
     if (editPanel) {
@@ -353,10 +355,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
         editPanel.appendChild(saveGlobalBtn);
     }
-    
+
     // Cargar datos (desde tierlist-data.json o desde imágenes locales)
     await loadData();
-    
+
     // Categorías
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', () => switchCategory(btn.getAttribute('data-cat')));
