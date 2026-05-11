@@ -10,7 +10,7 @@
     <style>
         /* Estilos específicos para tierlist */
         .tierlist-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             animation: softAppear 0.55s ease-out forwards;
         }
@@ -46,7 +46,6 @@
             color: #ffffff;
         }
 
-        /* Tabla de tierlist */
         .tier-table {
             width: 100%;
             border-collapse: collapse;
@@ -117,7 +116,6 @@
             white-space: nowrap;
         }
 
-        /* Botón editar (escondido pero accesible) */
         .edit-trigger {
             position: fixed;
             bottom: 15px;
@@ -140,7 +138,6 @@
             background: rgba(30, 30, 40, 0.8);
         }
 
-        /* Panel de edición (solo visible en modo edición) */
         .edit-panel {
             display: none;
             position: fixed;
@@ -184,7 +181,6 @@
             color: white;
         }
 
-        /* Indicador de modo edición */
         .edit-mode-badge {
             position: fixed;
             top: 80px;
@@ -203,15 +199,9 @@
             display: block;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .tier-item {
-                width: 60px;
-            }
-            .tier-label {
-                width: 60px;
-                font-size: 0.8rem;
-            }
+            .tier-item { width: 60px; }
+            .tier-label { width: 60px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -236,16 +226,12 @@
                 <button class="category-btn" data-cat="movies">🎬 Películas</button>
                 <button class="category-btn" data-cat="music">🎵 Álbumes</button>
             </div>
-            <div id="tierlistContent">
-                <!-- Las tierlists se renderizan acá -->
-            </div>
+            <div id="tierlistContent"></div>
         </div>
     </main>
 
-    <!-- Botón de edición (discreto) -->
     <button class="edit-trigger" id="editTrigger">✎</button>
 
-    <!-- Panel de edición (aparece solo cuando estás en modo editor) -->
     <div class="edit-panel" id="editPanel">
         <button class="edit-btn" id="addImageBtn">➕ Añadir imagen</button>
         <button class="edit-btn" id="addRowBtn">📊 Añadir fila</button>
@@ -253,11 +239,7 @@
         <button class="edit-btn danger" id="exitEditBtn">🚪 Salir edición</button>
     </div>
 
-    <!-- Indicador de modo edición -->
     <div class="edit-mode-badge" id="editModeBadge">✏️ MODO EDICIÓN</div>
-
-    <!-- Input oculto para subir imágenes -->
-    <input type="file" id="imageUpload" accept="image/*" style="display: none">
 
     <script src="js/tierlist.js"></script>
 </body>

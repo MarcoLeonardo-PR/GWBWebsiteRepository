@@ -1,7 +1,14 @@
 // ===== CONFIGURACIÓN =====
 const ADMIN_PASSWORD = "3233";
 
-// Estructura de filas por defecto
+// RUTAS DE IMÁGENES - AHORA APUNTAN A LA CARPETA thumbnails
+const IMAGE_BASE_PATH = {
+    games: "imagenes-tierlist/juegos/thumbnails/",
+    movies: "imagenes-tierlist/peliculas/thumbnails/",
+    music: "imagenes-tierlist/musica/thumbnails/"
+};
+
+// Filas por defecto
 const DEFAULT_ROWS = [
     { id: "splus", label: "S+", color: "#ff0066" },
     { id: "s", label: "S", color: "#ff6600" },
@@ -9,22 +16,21 @@ const DEFAULT_ROWS = [
     { id: "b", label: "B", color: "#66cc00" },
     { id: "c", label: "C", color: "#3399ff" },
     { id: "d", label: "D", color: "#6666cc" },
-    { id: "e", label: "E", color: "#9933cc" },
     { id: "meh", label: "Meh", color: "#888888" }
 ];
 
 const DEFAULT_TIERLISTS = {
     games: {
         rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-        items: { splus: [], s: [], a: [], b: [], c: [], d: [], e: [], meh: [] }
+        items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
     },
     movies: {
         rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-        items: { splus: [], s: [], a: [], b: [], c: [], d: [], e: [], meh: [] }
+        items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
     },
     music: {
         rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-        items: { splus: [], s: [], a: [], b: [], c: [], d: [], e: [], meh: [] }
+        items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
     }
 };
 
@@ -34,36 +40,49 @@ let isEditMode = false;
 let currentData = null;
 let dragSource = null;
 
-// Cargar datos
+// Cargar desde localStorage
 function loadTierlistData() {
-    const saved = localStorage.getItem("tierlist_data");
+    const saved = localStorage.getItem("tierlist_data_v2");
     if (saved) {
         try {
             const parsed = JSON.parse(saved);
+            // Asegurar que todas las categorías tienen la estructura correcta
             for (let cat of ["games", "movies", "music"]) {
-                if (!parsed[cat]) parsed[cat] = JSON.parse(JSON.stringify(DEFAULT_TIERLISTS[cat]));
+                if (!parsed[cat]) {
+                    parsed[cat] = JSON.parse(JSON.stringify(DEFAULT_TIERLISTS[cat]));
+                }
             }
             return parsed;
-        } catch(e) {}
+        } catch(e) {
+            console.error("Error cargando datos:", e);
+        }
     }
     return JSON.parse(JSON.stringify(DEFAULT_TIERLISTS));
 }
 
 function saveTierlistData(data) {
-    localStorage.setItem("tierlist_data", JSON.stringify(data));
+    localStorage.setItem("tierlist_data_v2", JSON.stringify(data));
+    console.log("💾 Datos guardados en localStorage");
 }
 
 let tierlistData = loadTierlistData();
 
-// ===== RENDERIZADO =====
+// ===== RENDERIZADO PRINCIPAL =====
 function renderTierlist() {
+    if (!tierlistData) {
+        console.error("No hay datos");
+        return;
+    }
+    
     currentData = tierlistData[currentCategory];
     const container = document.getElementById("tierlistContent");
     if (!container) return;
 
     let html = `<table class="tier-table" id="tierTable">`;
+    
     for (let row of currentData.rows) {
         const items = currentData.items[row.id] || [];
+        
         html += `
             <tr class="tier-row" data-row-id="${row.id}">
                 <td class="tier-label" style="border-left: 4px solid ${row.color};">
@@ -71,17 +90,29 @@ function renderTierlist() {
                     ${isEditMode ? `<button class="edit-row-btn" data-row="${row.id}" style="background:none;border:none;color:#aaa;margin-left:5px;cursor:pointer;">✎</button>` : ""}
                 </td>
                 <td class="tier-items" data-row-id="${row.id}">
-                    ${items.map((item, idx) => `
-                        <div class="tier-item" draggable="${isEditMode}" data-row="${row.id}" data-index="${idx}" data-id="${item.id}">
-                            <img src="${item.imgData}" alt="${item.name}" style="width:100%;aspect-ratio:1/1;object-fit:cover;">
-                            <div class="item-name">${item.name}</div>
-                            ${isEditMode ? `<button class="delete-item-btn" data-id="${item.id}" style="position:absolute;top:2px;right:2px;background:rgba(0,0,0,0.7);border:none;color:#e91e14;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;">✕</button>` : ""}
-                        </div>
-                    `).join('')}
-                </td>
-            </tr>
         `;
+        
+        if (items.length === 0 && !isEditMode) {
+            html += `<div style="color:#555; padding: 1rem;">— vacío —</div>`;
+        } else {
+            for (let idx = 0; idx < items.length; idx++) {
+                const item = items[idx];
+                html += `
+                    <div class="tier-item" draggable="${isEditMode}" data-row="${row.id}" data-index="${idx}" data-id="${item.id}">
+                        <img src="${item.imgPath}" 
+                             alt="${item.name}" 
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/2a2438/aaa?text=404'">
+                        <div class="item-name">${item.name}</div>
+                        ${isEditMode ? `<button class="delete-item-btn" data-id="${item.id}" style="position:absolute;top:2px;right:2px;background:rgba(0,0,0,0.7);border:none;color:#e91e14;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;">✕</button>` : ""}
+                    </div>
+                `;
+            }
+        }
+        
+        html += `</td></tr>`;
     }
+    
     html += `</table>`;
     container.innerHTML = html;
 
@@ -90,6 +121,8 @@ function renderTierlist() {
         attachDeleteEvents();
         attachRowEditEvents();
     }
+    
+    console.log(`✅ Renderizado categoría: ${currentCategory}, ${Object.values(currentData.items).flat().length} imágenes totales`);
 }
 
 // ===== DRAG & DROP =====
@@ -154,7 +187,7 @@ function drop(e) {
     renderTierlist();
 }
 
-// ===== ELIMINAR =====
+// ===== ELIMINAR ÍTEM =====
 function attachDeleteEvents() {
     document.querySelectorAll('.delete-item-btn').forEach(btn => {
         btn.removeEventListener('click', deleteItem);
@@ -177,7 +210,7 @@ function deleteItem(e) {
     renderTierlist();
 }
 
-// ===== EDITAR FILA =====
+// ===== EDITAR FILAS =====
 function attachRowEditEvents() {
     document.querySelectorAll('.edit-row-btn').forEach(btn => {
         btn.removeEventListener('click', editRowLabel);
@@ -197,73 +230,46 @@ function editRowLabel(e) {
     }
 }
 
-// ===== SUBIR MÚLTIPLES IMÁGENES (SIN NOMBRAR, SIN PROMPTS MOLESTOS) =====
-let pendingFiles = [];
-let pendingTargetRowId = null;
-
-function setupMultipleImageUpload() {
-    const fileInput = document.getElementById('imageUpload');
-    fileInput.multiple = true;
+// ===== AÑADIR IMAGEN POR RUTA =====
+function addImageByPath() {
+    const fileName = prompt(
+        "📁 Nombre del archivo de imagen:\n\n" +
+        "Ejemplo: mario.png\n\n" +
+        "⚠️ La imagen debe estar en:\n" +
+        `   ${IMAGE_BASE_PATH[currentCategory]}\n\n` +
+        "📌 No escribas la ruta completa, solo el nombre del archivo."
+    );
+    if (!fileName || !fileName.trim()) return;
     
-    fileInput.addEventListener('change', (e) => {
-        const files = Array.from(e.target.files).filter(f => f.type.startsWith('image/'));
-        if (files.length === 0) return;
-        
-        pendingFiles = files;
-        
-        // Mostrar selector de fila UNA SOLA VEZ
-        const rowOptions = currentData.rows.map((row, idx) => `${idx + 1}. ${row.label}`).join('\n');
-        const rowIndex = prompt(`📁 ${files.length} imágenes seleccionadas\n\n¿A qué fila quieres añadirlas?\n\n${rowOptions}\n\nEscribe el número (1-${currentData.rows.length}):`, "1");
-        
-        let targetRowId = null;
-        if (rowIndex && !isNaN(parseInt(rowIndex))) {
-            const idx = parseInt(rowIndex) - 1;
-            if (idx >= 0 && idx < currentData.rows.length) {
-                targetRowId = currentData.rows[idx].id;
-            }
+    const rowOptions = currentData.rows.map((row, idx) => `${idx + 1}. ${row.label}`).join('\n');
+    const rowIndex = prompt(`¿A qué fila quieres añadirla?\n\n${rowOptions}\n\nNúmero (1-${currentData.rows.length}):`, "1");
+    
+    let targetRowId = null;
+    if (rowIndex && !isNaN(parseInt(rowIndex))) {
+        const idx = parseInt(rowIndex) - 1;
+        if (idx >= 0 && idx < currentData.rows.length) {
+            targetRowId = currentData.rows[idx].id;
         }
-        if (!targetRowId) targetRowId = currentData.rows[0].id;
-        pendingTargetRowId = targetRowId;
-        
-        // Procesar todas las imágenes
-        processNextImage();
-        fileInput.value = '';
-    });
-}
-
-function processNextImage() {
-    if (pendingFiles.length === 0) {
-        saveTierlistData(tierlistData);
-        renderTierlist();
-        const rowLabel = currentData.rows.find(r => r.id === pendingTargetRowId)?.label;
-        alert(`✅ Imágenes añadidas a "${rowLabel}"`);
-        return;
     }
+    if (!targetRowId) targetRowId = currentData.rows[0].id;
     
-    const file = pendingFiles.shift();
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-        // Usar nombre del archivo sin extensión
-        const name = file.name.replace(/\.[^/.]+$/, "");
-        
-        const newItem = {
-            id: `item_${Date.now()}_${Math.random()}`,
-            name: name,
-            imgData: ev.target.result
-        };
-        
-        if (!currentData.items[pendingTargetRowId]) currentData.items[pendingTargetRowId] = [];
-        currentData.items[pendingTargetRowId].push(newItem);
-        
-        // Procesar siguiente
-        processNextImage();
+    const name = fileName.replace(/\.[^/.]+$/, "");
+    const newItem = {
+        id: `item_${Date.now()}_${Math.random()}`,
+        name: name,
+        imgPath: IMAGE_BASE_PATH[currentCategory] + fileName.trim()
     };
-    reader.readAsDataURL(file);
+    
+    if (!currentData.items[targetRowId]) currentData.items[targetRowId] = [];
+    currentData.items[targetRowId].push(newItem);
+    saveTierlistData(tierlistData);
+    renderTierlist();
+    alert(`✅ Imagen añadida: ${fileName}`);
 }
 
-// ===== OTRAS FUNCIONES =====
+// ===== AÑADIR FILA =====
 function addNewRow() {
-    const newLabel = prompt("Nombre de la nueva fila:");
+    const newLabel = prompt("Nombre de la nueva fila (ej: SS, Top, Favoritos):");
     if (!newLabel) return;
     const newId = `row_${Date.now()}`;
     currentData.rows.push({ id: newId, label: newLabel, color: "#888888" });
@@ -272,24 +278,66 @@ function addNewRow() {
     renderTierlist();
 }
 
+// ===== RESETEAR CATEGORÍA =====
 function resetCurrentCategory() {
-    if (confirm(`¿Resetear "${currentCategory}"? Se perderán los cambios.`)) {
+    if (confirm(`¿Resetear "${currentCategory}"? Se perderán todos los cambios.`)) {
         tierlistData[currentCategory] = JSON.parse(JSON.stringify(DEFAULT_TIERLISTS[currentCategory]));
         saveTierlistData(tierlistData);
         renderTierlist();
+        alert("✅ Categoría reseteada");
     }
+}
+
+// ===== EXPORTAR DATOS =====
+function exportData() {
+    const dataStr = JSON.stringify(tierlistData, null, 2);
+    const blob = new Blob([dataStr], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `tierlist_${currentCategory}_${new Date().toISOString().slice(0,19)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    alert("✅ Tierlist exportada");
+}
+
+// ===== IMPORTAR DATOS =====
+function importData() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json';
+    input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+            try {
+                const imported = JSON.parse(ev.target.result);
+                if (confirm("¿Importar SOLO la categoría actual? (Cancelar = importar todo)")) {
+                    tierlistData[currentCategory] = imported;
+                } else {
+                    tierlistData = imported;
+                }
+                saveTierlistData(tierlistData);
+                renderTierlist();
+                alert("✅ Datos importados");
+            } catch(e) {
+                alert("Archivo inválido");
+            }
+        };
+        reader.readAsText(file);
+    };
+    input.click();
 }
 
 // ===== AUTENTICACIÓN =====
 let authAttempts = 0;
 
 function enterEditMode() {
-    // Evitar múltiples prompts si el usuario cancela
     if (authAttempts > 2) {
-        alert("Demasiados intentos. Recarga la página para volver a intentar.");
+        alert("Demasiados intentos. Recarga la página.");
         return;
     }
-    
     const password = prompt("🔐 Contraseña de edición:");
     if (password === ADMIN_PASSWORD) {
         authAttempts = 0;
@@ -299,7 +347,7 @@ function enterEditMode() {
         renderTierlist();
     } else if (password !== null) {
         authAttempts++;
-        alert(`Contraseña incorrecta. Te quedan ${3 - authAttempts} intentos.`);
+        alert(`Contraseña incorrecta. Intentos: ${authAttempts}/3`);
         if (authAttempts < 3) enterEditMode();
     }
 }
@@ -311,6 +359,7 @@ function exitEditMode() {
     renderTierlist();
 }
 
+// ===== CAMBIAR CATEGORÍA =====
 function switchCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.category-btn').forEach(btn => {
@@ -321,22 +370,47 @@ function switchCategory(category) {
 
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("🚀 Tierlist inicializada");
     renderTierlist();
-    setupMultipleImageUpload();
     
+    // Categorías
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', () => switchCategory(btn.getAttribute('data-cat')));
     });
     
-    document.getElementById('editTrigger').addEventListener('click', enterEditMode);
-    document.getElementById('exitEditBtn').addEventListener('click', exitEditMode);
-    document.getElementById('addImageBtn').addEventListener('click', () => {
-        if (isEditMode) document.getElementById('imageUpload').click();
+    // Botón editar
+    const editTrigger = document.getElementById('editTrigger');
+    if (editTrigger) editTrigger.addEventListener('click', enterEditMode);
+    
+    const exitBtn = document.getElementById('exitEditBtn');
+    if (exitBtn) exitBtn.addEventListener('click', exitEditMode);
+    
+    const addImageBtn = document.getElementById('addImageBtn');
+    if (addImageBtn) addImageBtn.addEventListener('click', () => {
+        if (isEditMode) addImageByPath();
     });
-    document.getElementById('addRowBtn').addEventListener('click', () => {
+    
+    const addRowBtn = document.getElementById('addRowBtn');
+    if (addRowBtn) addRowBtn.addEventListener('click', () => {
         if (isEditMode) addNewRow();
     });
-    document.getElementById('resetTierlistBtn').addEventListener('click', () => {
+    
+    const resetBtn = document.getElementById('resetTierlistBtn');
+    if (resetBtn) resetBtn.addEventListener('click', () => {
         if (isEditMode) resetCurrentCategory();
     });
+    
+    // Botones extra de exportar/importar
+    const exportBtn = document.createElement('button');
+    exportBtn.className = 'edit-btn';
+    exportBtn.textContent = '📤 Exportar';
+    exportBtn.onclick = exportData;
+    const editPanel = document.getElementById('editPanel');
+    if (editPanel) editPanel.appendChild(exportBtn);
+    
+    const importBtn = document.createElement('button');
+    importBtn.className = 'edit-btn';
+    importBtn.textContent = '📥 Importar';
+    importBtn.onclick = importData;
+    if (editPanel) editPanel.appendChild(importBtn);
 });
