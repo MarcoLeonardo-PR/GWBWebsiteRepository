@@ -1,12 +1,9 @@
 // ===== CONFIGURACIÓN =====
 const ADMIN_PASSWORD = "3233";
 
-// RUTAS DE IMÁGENES - AHORA APUNTAN A LA CARPETA thumbnails
-const IMAGE_BASE_PATH = {
-    games: "imagenes-tierlist/juegos/thumbnails/",
-    movies: "imagenes-tierlist/peliculas/thumbnails/",
-    music: "imagenes-tierlist/musica/thumbnails/"
-};
+// RUTAS
+const IMAGE_BASE_PATH = "imagenes-tierlist/juegos/thumbnails/";
+const IMAGE_LIST_JSON = "imagenes-tierlist/juegos/thumbnails/imagenes.json";
 
 // Filas por defecto
 const DEFAULT_ROWS = [
@@ -19,60 +16,79 @@ const DEFAULT_ROWS = [
     { id: "meh", label: "Meh", color: "#888888" }
 ];
 
-const DEFAULT_TIERLISTS = {
-    games: {
-        rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-        items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
-    },
-    movies: {
-        rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-        items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
-    },
-    music: {
-        rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
-        items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
-    }
-};
-
 // ===== ESTADO GLOBAL =====
 let currentCategory = "games";
 let isEditMode = false;
 let currentData = null;
 let dragSource = null;
+let tierlistData = null;
 
-// Cargar desde localStorage
-function loadTierlistData() {
-    const saved = localStorage.getItem("tierlist_data_v2");
-    if (saved) {
-        try {
-            const parsed = JSON.parse(saved);
-            // Asegurar que todas las categorías tienen la estructura correcta
-            for (let cat of ["games", "movies", "music"]) {
-                if (!parsed[cat]) {
-                    parsed[cat] = JSON.parse(JSON.stringify(DEFAULT_TIERLISTS[cat]));
+// ===== CARGAR IMÁGENES AUTOMÁTICAMENTE =====
+async function loadAllImages() {
+    const container = document.getElementById("tierlistContent");
+    if (container) container.innerHTML = '<div style="text-align:center; padding:2rem;">📡 Cargando imágenes...</div>';
+    
+    try {
+        // 1. Cargar la lista de imágenes desde el JSON
+        const response = await fetch(IMAGE_LIST_JSON);
+        if (!response.ok) throw new Error(`No se encontró ${IMAGE_LIST_JSON}`);
+        const imageFiles = await response.json();
+        
+        // 2. Cargar datos guardados o crear estructura nueva
+        const saved = localStorage.getItem("tierlist_data_v3");
+        if (saved) {
+            tierlistData = JSON.parse(saved);
+        } else {
+            tierlistData = {
+                games: {
+                    rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
+                    items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
+                },
+                movies: {
+                    rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
+                    items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
+                },
+                music: {
+                    rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
+                    items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
                 }
+            };
+        }
+        
+        // 3. Si la fila S+ está vacía, añadir TODAS las imágenes automáticamente
+        if (tierlistData.games.items.splus.length === 0 && imageFiles.length > 0) {
+            console.log(`📥 Cargando ${imageFiles.length} imágenes automáticamente...`);
+            for (const fileName of imageFiles) {
+                const name = fileName.replace(/\.[^/.]+$/, "");
+                tierlistData.games.items.splus.push({
+                    id: `img_${Date.now()}_${Math.random()}_${name}`,
+                    name: name,
+                    imgPath: IMAGE_BASE_PATH + fileName
+                });
             }
-            return parsed;
-        } catch(e) {
-            console.error("Error cargando datos:", e);
+            localStorage.setItem("tierlist_data_v3", JSON.stringify(tierlistData));
+            console.log("✅ Imágenes cargadas automáticamente");
+        }
+        
+        renderTierlist();
+    } catch (error) {
+        console.error("Error cargando imágenes:", error);
+        const container = document.getElementById("tierlistContent");
+        if (container) {
+            container.innerHTML = `
+                <div style="text-align:center; padding:2rem; background:#0d0b12; border-radius:12px;">
+                    <p>❌ Error cargando las imágenes</p>
+                    <p style="font-size:0.8rem; color:#888;">Asegúrate de que existe el archivo:<br>${IMAGE_LIST_JSON}</p>
+                    <p style="font-size:0.7rem; margin-top:1rem;">🔧 Solución: Ejecuta el script PowerShell en la carpeta thumbnails/ para crear imagenes.json</p>
+                </div>
+            `;
         }
     }
-    return JSON.parse(JSON.stringify(DEFAULT_TIERLISTS));
 }
-
-function saveTierlistData(data) {
-    localStorage.setItem("tierlist_data_v2", JSON.stringify(data));
-    console.log("💾 Datos guardados en localStorage");
-}
-
-let tierlistData = loadTierlistData();
 
 // ===== RENDERIZADO PRINCIPAL =====
 function renderTierlist() {
-    if (!tierlistData) {
-        console.error("No hay datos");
-        return;
-    }
+    if (!tierlistData) return;
     
     currentData = tierlistData[currentCategory];
     const container = document.getElementById("tierlistContent");
@@ -103,7 +119,7 @@ function renderTierlist() {
                              alt="${item.name}" 
                              loading="lazy"
                              onerror="this.onerror=null; this.src='https://placehold.co/100x100/2a2438/aaa?text=404'">
-                        <div class="item-name">${item.name}</div>
+                        <div class="item-name">${escapeHtml(item.name)}</div>
                         ${isEditMode ? `<button class="delete-item-btn" data-id="${item.id}" style="position:absolute;top:2px;right:2px;background:rgba(0,0,0,0.7);border:none;color:#e91e14;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;">✕</button>` : ""}
                     </div>
                 `;
@@ -122,7 +138,8 @@ function renderTierlist() {
         attachRowEditEvents();
     }
     
-    console.log(`✅ Renderizado categoría: ${currentCategory}, ${Object.values(currentData.items).flat().length} imágenes totales`);
+    const total = Object.values(currentData.items).flat().length;
+    console.log(`✅ Renderizado: ${currentCategory}, ${total} imágenes`);
 }
 
 // ===== DRAG & DROP =====
@@ -183,7 +200,7 @@ function drop(e) {
         targetItems.push(movedItem);
     }
     currentData.items[targetRowId] = targetItems;
-    saveTierlistData(tierlistData);
+    saveToLocalStorage();
     renderTierlist();
 }
 
@@ -206,7 +223,7 @@ function deleteItem(e) {
             break;
         }
     }
-    saveTierlistData(tierlistData);
+    saveToLocalStorage();
     renderTierlist();
 }
 
@@ -222,10 +239,10 @@ function editRowLabel(e) {
     const rowId = e.target.closest('.edit-row-btn')?.getAttribute('data-row');
     const row = currentData.rows.find(r => r.id === rowId);
     if (!row) return;
-    const newLabel = prompt("Nuevo nombre:", row.label);
+    const newLabel = prompt("Nuevo nombre para esta fila:", row.label);
     if (newLabel && newLabel.trim()) {
         row.label = newLabel.trim();
-        saveTierlistData(tierlistData);
+        saveToLocalStorage();
         renderTierlist();
     }
 }
@@ -236,7 +253,7 @@ function addImageByPath() {
         "📁 Nombre del archivo de imagen:\n\n" +
         "Ejemplo: mario.png\n\n" +
         "⚠️ La imagen debe estar en:\n" +
-        `   ${IMAGE_BASE_PATH[currentCategory]}\n\n` +
+        `   ${IMAGE_BASE_PATH}\n\n` +
         "📌 No escribas la ruta completa, solo el nombre del archivo."
     );
     if (!fileName || !fileName.trim()) return;
@@ -257,12 +274,12 @@ function addImageByPath() {
     const newItem = {
         id: `item_${Date.now()}_${Math.random()}`,
         name: name,
-        imgPath: IMAGE_BASE_PATH[currentCategory] + fileName.trim()
+        imgPath: IMAGE_BASE_PATH + fileName.trim()
     };
     
     if (!currentData.items[targetRowId]) currentData.items[targetRowId] = [];
     currentData.items[targetRowId].push(newItem);
-    saveTierlistData(tierlistData);
+    saveToLocalStorage();
     renderTierlist();
     alert(`✅ Imagen añadida: ${fileName}`);
 }
@@ -274,21 +291,24 @@ function addNewRow() {
     const newId = `row_${Date.now()}`;
     currentData.rows.push({ id: newId, label: newLabel, color: "#888888" });
     currentData.items[newId] = [];
-    saveTierlistData(tierlistData);
+    saveToLocalStorage();
     renderTierlist();
 }
 
 // ===== RESETEAR CATEGORÍA =====
 function resetCurrentCategory() {
     if (confirm(`¿Resetear "${currentCategory}"? Se perderán todos los cambios.`)) {
-        tierlistData[currentCategory] = JSON.parse(JSON.stringify(DEFAULT_TIERLISTS[currentCategory]));
-        saveTierlistData(tierlistData);
+        tierlistData[currentCategory] = {
+            rows: JSON.parse(JSON.stringify(DEFAULT_ROWS)),
+            items: { splus: [], s: [], a: [], b: [], c: [], d: [], meh: [] }
+        };
+        saveToLocalStorage();
         renderTierlist();
         alert("✅ Categoría reseteada");
     }
 }
 
-// ===== EXPORTAR DATOS =====
+// ===== EXPORTAR/IMPORTAR =====
 function exportData() {
     const dataStr = JSON.stringify(tierlistData, null, 2);
     const blob = new Blob([dataStr], {type: "application/json"});
@@ -301,7 +321,6 @@ function exportData() {
     alert("✅ Tierlist exportada");
 }
 
-// ===== IMPORTAR DATOS =====
 function importData() {
     const input = document.createElement('input');
     input.type = 'file';
@@ -318,7 +337,7 @@ function importData() {
                 } else {
                     tierlistData = imported;
                 }
-                saveTierlistData(tierlistData);
+                saveToLocalStorage();
                 renderTierlist();
                 alert("✅ Datos importados");
             } catch(e) {
@@ -328,6 +347,20 @@ function importData() {
         reader.readAsText(file);
     };
     input.click();
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem("tierlist_data_v3", JSON.stringify(tierlistData));
+    console.log("💾 Datos guardados");
+}
+
+function escapeHtml(str) {
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
 }
 
 // ===== AUTENTICACIÓN =====
@@ -359,7 +392,6 @@ function exitEditMode() {
     renderTierlist();
 }
 
-// ===== CAMBIAR CATEGORÍA =====
 function switchCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.category-btn').forEach(btn => {
@@ -369,16 +401,10 @@ function switchCategory(category) {
 }
 
 // ===== INICIALIZACIÓN =====
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.log("🚀 Tierlist inicializada");
-    renderTierlist();
     
-    // Categorías
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.addEventListener('click', () => switchCategory(btn.getAttribute('data-cat')));
-    });
-    
-    // Botón editar
+    // Inicializar el panel de edición (botones)
     const editTrigger = document.getElementById('editTrigger');
     if (editTrigger) editTrigger.addEventListener('click', enterEditMode);
     
@@ -400,17 +426,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isEditMode) resetCurrentCategory();
     });
     
-    // Botones extra de exportar/importar
-    const exportBtn = document.createElement('button');
-    exportBtn.className = 'edit-btn';
-    exportBtn.textContent = '📤 Exportar';
-    exportBtn.onclick = exportData;
+    // Botones extra
     const editPanel = document.getElementById('editPanel');
-    if (editPanel) editPanel.appendChild(exportBtn);
+    if (editPanel) {
+        const exportBtn = document.createElement('button');
+        exportBtn.className = 'edit-btn';
+        exportBtn.textContent = '📤 Exportar';
+        exportBtn.onclick = exportData;
+        editPanel.appendChild(exportBtn);
+        
+        const importBtn = document.createElement('button');
+        importBtn.className = 'edit-btn';
+        importBtn.textContent = '📥 Importar';
+        importBtn.onclick = importData;
+        editPanel.appendChild(importBtn);
+    }
     
-    const importBtn = document.createElement('button');
-    importBtn.className = 'edit-btn';
-    importBtn.textContent = '📥 Importar';
-    importBtn.onclick = importData;
-    if (editPanel) editPanel.appendChild(importBtn);
+    // Cargar imágenes automáticamente
+    await loadAllImages();
+    
+    // Categorías
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => switchCategory(btn.getAttribute('data-cat')));
+    });
 });
