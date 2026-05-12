@@ -141,6 +141,81 @@ function saveToGlobalJSON() {
     URL.revokeObjectURL(url);
     alert(`✅ Archivo ${GLOBAL_DATA_JSON} descargado.\n📌 Súbelo a la raíz de tu repositorio en GitHub para que todos lo vean.`);
 }
+// Botón para sincronizar nuevas imágenes
+const syncNewImagesBtn = document.createElement('button');
+syncNewImagesBtn.className = 'edit-btn';
+syncNewImagesBtn.textContent = '🔄 Sincronizar nuevas imágenes';
+syncNewImagesBtn.onclick = async () => {
+    if (!isEditMode) {
+        alert("Activa el modo edición primero.");
+        return;
+    }
+    await syncNewImages();
+};
+editPanel.appendChild(syncNewImagesBtn);
+
+// ===== SINCRONIZAR NUEVAS IMÁGENES DESDE imagenes.json =====
+async function syncNewImages() {
+    try {
+        const response = await fetch(IMAGE_LIST_JSON);
+        if (!response.ok) throw new Error("No se pudo cargar imagenes.json");
+        const allImageFiles = await response.json();
+        
+        // Obtener todas las rutas de imágenes que YA existen en la tierlist
+        const existingPaths = new Set();
+        for (const rowId in tierlistData.games.items) {
+            tierlistData.games.items[rowId].forEach(item => {
+                existingPaths.add(item.imgPath);
+            });
+        }
+        
+        // Identificar nuevas imágenes
+        const newImages = [];
+        for (const fileName of allImageFiles) {
+            const fullPath = IMAGE_BASE_PATH + fileName;
+            if (!existingPaths.has(fullPath)) {
+                newImages.push(fileName);
+            }
+        }
+        
+        if (newImages.length === 0) {
+            alert("✅ No hay nuevas imágenes. Todo está sincronizado.");
+            return;
+        }
+        
+        // Preguntar a qué fila añadirlas
+        const rowOptions = currentData.rows.map((row, idx) => `${idx + 1}. ${row.label}`).join('\n');
+        const rowIndex = prompt(`Se encontraron ${newImages.length} imágenes nuevas.\n¿A qué fila quieres añadirlas?\n\n${rowOptions}\n\nNúmero (1-${currentData.rows.length}):`, "1");
+        
+        let targetRowId = null;
+        if (rowIndex && !isNaN(parseInt(rowIndex))) {
+            const idx = parseInt(rowIndex) - 1;
+            if (idx >= 0 && idx < currentData.rows.length) {
+                targetRowId = currentData.rows[idx].id;
+            }
+        }
+        if (!targetRowId) targetRowId = currentData.rows[0].id;
+        
+        // Añadir cada nueva imagen
+        for (const fileName of newImages) {
+            const name = fileName.replace(/\.[^/.]+$/, "");
+            const newItem = {
+                id: `img_${Date.now()}_${Math.random()}_${name}`,
+                name: name,
+                imgPath: IMAGE_BASE_PATH + fileName
+            };
+            if (!currentData.items[targetRowId]) currentData.items[targetRowId] = [];
+            currentData.items[targetRowId].push(newItem);
+        }
+        
+        renderTierlist();
+        alert(`✅ ${newImages.length} imágenes añadidas a la fila "${currentData.rows.find(r => r.id === targetRowId).label}".\n📌 Recuerda guardar el nuevo JSON (usando el botón "Guardar disposición en servidor") y subirlo a GitHub.`);
+        
+    } catch (error) {
+        console.error(error);
+        alert("❌ Error al sincronizar: " + error.message);
+    }
+}
 
 // ===== RESTO DE FUNCIONES (drag & drop, delete, filas, etc.) =====
 function attachDragEvents() {
